@@ -1,32 +1,38 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from 'hooks';
-import Link from '@mui/material/Link';
-import IconButton from '@mui/material/IconButton';
 import HomeIcon from '@mui/icons-material/Home';
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import Tooltip from '@mui/material/Tooltip';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
-export const Navigation = () => {
-  const { isLoggedIn } = useAuth();
-  
+import styles from './Navigation.module.css';
+
+function Navigation({ onClickCurrency }) {
   return (
-    <nav>
-      <Link component={NavLink} to="/">
-        <Tooltip title="Home" placement="bottom" arrow>
-          <IconButton>
-            <HomeIcon  />
-          </IconButton>
-        </Tooltip>
-      </Link>
-      {isLoggedIn && (
-        <Link component={NavLink} to="/contacts">
-          <Tooltip title="Contacts" placement="bottom" arrow>
-            <IconButton>
-              <ImportContactsIcon />
-            </IconButton>
-          </Tooltip>
-        </Link>
-      )}
-    </nav>
+    <div className={styles.navigation}>
+      <NavLink to="/home" className={styles.navigation__item}>
+        <div className={styles.navigation__icon}>
+          <HomeIcon fontSize="inherit" />
+        </div>
+        <div className={styles.navigation__text}>Home</div>
+      </NavLink>
+      <NavLink to="/statistics" className={styles.navigation__item}>
+        <div className={styles.navigation__icon}>
+          <TimelineIcon fontSize="inherit" />
+        </div>
+
+        <div className={styles.navigation__text}>Statistics</div>
+      </NavLink>
+      <NavLink
+        to="/currency"
+        className={styles.navigation__item}
+        onClick={onClickCurrency}
+      >
+        <div className={styles.navigation__icon}>
+          <AttachMoneyIcon fontSize="inherit" />
+        </div>
+      </NavLink>
+    </div>
   );
-};
+}
+
+export default Navigation;
