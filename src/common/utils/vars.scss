@@ -1,54 +1,54 @@
 :root {
-    // GŁÓWNE
-    // główny font
+    /* GŁÓWNE */
+    /* główny font */
     --main-font: "Circe", sans-serif;
     --secondary-font: "Poppins", sans-serif;
 
-    // główny kolor projektu - tło
+    /* główny kolor projektu - tło */
     --bg-main-color: rgba(255, 255, 255, 0.4);
-    // główny kolor tekstu
+    /* główny kolor tekstu */
     --txt-main-color: rgba(0, 0, 0, 1);
     
-    // BUTTON
-    // tło buttona
+    /* BUTTON */
+    /* tło buttona */
     --btn-bg-main-color: rgba(36, 204, 167, 1);
-    // kolor tekstu buttona
+    /* kolor tekstu buttona */
     --btn-txt-main-color: rgba(255, 255, 255, 1);
     
-    // AKTYWNE, NIEAKTYWNE ELEMENTY, INFORMACJE dla klienta
-    // rejestracja, logowanie użytkownika
-    // informacje dla klienta
-    // formularz - zanim klient uzupełni
+    /* AKTYWNE, NIEAKTYWNE ELEMENTY, INFORMACJE dla klienta */
+    /* rejestracja, logowanie użytkownika */
+    /* informacje dla klienta */
+    /* formularz - zanim klient uzupełni */
     --txt-inactive-form: rgba(189, 189, 189, 1);
-    // wydatki
+    /* wydatki */
     --expense-color: rgba(255, 101, 150, 1);
-    // przychody
+    /* przychody */
     --income-color: rgba(36, 204, 167, 1);
-    // logowanie, anulowanie - napisy button kolor
+    /* logowanie, anulowanie - napisy button kolor */
     --element-inactive-color: rgba(74, 86, 226, 1);
-    // aktywna ikona tło
+    /* aktywna ikona tło */
     --bg-icon-active-color:rgba(74, 86, 226, 1);
-    // nieaktywna ikona 
+    /* nieaktywna ikona  */
     --bg-icon-inactive-color: rgba(110, 120, 232, 1);
     
-    // DROPDOWN
-    // dropdown - tło menu rozwijane
-    // pola nieaktywne
+    /* DROPDOWN */
+    /* dropdown - tło menu rozwijane */
+    /* pola nieaktywne */
     --dropdown-bg-inactive-color: rgba(255, 255, 255, 0.7);
-    // pola aktywne
+    /* pola aktywne */
     --dropdown-bg-active-color: rgba(255, 255, 255, 1);
     
-    // BACKDROP
-    // tło backdropu
+    /* BACKDROP */
+    /* tło backdropu */
     --backdrop: rgba(0,0,0, 0.25);
-    // okno modalne - tło
+    /* okno modalne - tło
     --bg-modal-color: rgba(255, 255, 255, 1);
 
-    // breakpoints
+    /* breakpoints */
     --mobile: 480px;
     --tablet: 768px;
     --desktop: 1280px;
 
-    // transition
+    /* transition */
     --transition: all 250ms ease;
 }
