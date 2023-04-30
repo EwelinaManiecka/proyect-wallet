@@ -17,14 +17,12 @@ const setAuthToken = token => {
 export const logIn = createAsyncThunk(
   'sign-in',
   async (credentials, thunkAPI) => {
-    console.log('test async thunk', credentials);
     try {
-      const response = await loginInstance.post(credentials);
-      console.log(response);
-      setAuthToken(response.token);
-      return response;
+      const response = await loginInstance.post('sign-in', credentials);
+      setAuthToken(response.data.token);
+      console.log(response.status === 201);
+      return response.data;
     } catch (e) {
-      console.log('test async thunk reject', e);
       return thunkAPI.rejectWithValue(e);
     }
   }

@@ -6,6 +6,7 @@ export const Input = ({
   type,
   placeholder,
   classNameInput,
+  idInput,
   inputPattern,
   inputRequired,
 }) => {
@@ -13,6 +14,7 @@ export const Input = ({
     <input
       pattern={inputPattern}
       className={classNameInput}
+      id={idInput}
       type={type}
       name={name}
       onSubmit={handleInputSubmit}
