@@ -9,7 +9,6 @@ const RegisterPage = lazy(() => import('pages/Register/RegistrationPage'));
 const LoginPage = lazy(() => import('pages/Login/Login'));
 
 const App = () => {
-  const dispatch = useDispatch();
 
   return (
     <>
