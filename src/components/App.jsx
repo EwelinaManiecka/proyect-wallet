@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '../layouts/Layout';
 import { routes } from './routes/routes';
@@ -9,7 +8,6 @@ const RegisterPage = lazy(() => import('pages/Register/RegistrationPage'));
 const LoginPage = lazy(() => import('pages/Login/Login'));
 
 const App = () => {
-
   return (
     <>
       <Routes>
