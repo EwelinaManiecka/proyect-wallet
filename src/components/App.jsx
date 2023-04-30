@@ -5,7 +5,7 @@ import { Layout } from '../layouts/Layout';
 import { routes } from './routes/routes';
 
 const HomePage = lazy(() => import('pages/Home/Home'));
-const RegisterPage = lazy(() => import('pages/Register/Register'));
+const RegisterPage = lazy(() => import('pages/Register/RegistrationPage'));
 const LoginPage = lazy(() => import('pages/Login/Login'));
 
 const App = () => {
