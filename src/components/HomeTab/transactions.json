@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "id":"1",
+            "date": "15.11.21",
+            "Expenses": true,
+            "category": "car",
+            "sum": 300,
+            "balance": 8700
+        },
+          {
+            "id":"2",
+            "date": "20.11.21",
+            "Expenses": true,
+            "category": "other",
+            "sum": 600,
+            "balance": 6700
+        },
+          {
+            "id":"3",
+            "date": "30.11.21",
+            "Expenses": true,
+            "category": "car",
+            "sum": 300,
+            "balance": 8700
+        },  {
+            "id":"4",
+            "date": "15.12.21",
+            "Expenses": true,
+            "category": "income",
+            "sum": 1300,
+            "balance": 10700
+        },
+          {
+            "id":"5",
+            "date": "15.11.21",
+            "Expenses": true,
+            "category": "products",
+            "sum": 300,
+            "balance": 8700
+        }
+
+    ]
+}
