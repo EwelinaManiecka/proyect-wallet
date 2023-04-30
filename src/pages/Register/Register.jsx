@@ -1,6 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError } from 'redux/auth/selectors';
-import { register } from 'redux/auth/operations';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -9,19 +7,19 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import css from './Register.module.scss';
 
 const Register = () => {
-  const error = useSelector(selectError);
+  // const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
     const { name, email, password } = e.target.elements;
-    dispatch(
-      register({
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      })
-    );
+    // dispatch(
+    //   register({
+    //     name: name.value,
+    //     email: email.value,
+    //     password: password.value,
+    //   })
+    // );
   };
 
   return (
@@ -72,12 +70,12 @@ const Register = () => {
         </Button>
       </form>
 
-      {error?.response?.data?.errors?.password?.message && (
+      {/* {error?.response?.data?.errors?.password?.message && (
         <Notification message="Try another password." />
       )}
       {error?.response?.data?.name && (
         <Notification message={'Try another e-mail.'} />
-      )}
+      )} */}
     </>
   );
 };
