@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '../layouts/Layout';
 import { routes } from './routes/routes';
