@@ -65,7 +65,7 @@ const LoginForm = () => {
       validationSchema={signInSchema}
       onSubmit={handleFormSubmit}
     >
-      {({}) => (
+      {({props}) => (
         <Form classNameForm={css.loginForm} handleFormSubmit={handleFormSubmit}>
           <div className={css.loginHeader}>
             <img alt="" src={wallet} className={css.loginWallet} />
