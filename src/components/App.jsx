@@ -6,10 +6,9 @@ import { routes } from './routes/routes';
 
 const HomePage = lazy(() => import('pages/Home/Home'));
 const RegisterPage = lazy(() => import('pages/Register/RegistrationPage'));
-const LoginPage = lazy(() => import('pages/Login/Login'));
+const LoginPage = lazy(() => import('pages/Login/LoginPage'));
 
 const App = () => {
-
   return (
     <>
       <Routes>
