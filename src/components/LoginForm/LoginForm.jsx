@@ -9,7 +9,9 @@ import { getIsAuth, getIsError } from 'redux/login/selectors';
 import Button from 'common/Button/Button';
 import { Form } from 'common/Form/Form';
 import wallet from '../../images/wallet.svg';
-import css from './LoginForm.module.css';
+import envelope from '../../images/envelope.svg';
+import padlock from '../../images/padlock.svg';
+import css from './LoginForm.module.scss';
 
 const notify = Notiflix.Notify;
 
@@ -44,9 +46,10 @@ const LoginForm = () => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    const children = [...e.target.children];
+    const children = [...e.target];
     const password = children.find(el => el.type === 'password').value;
     const email = children.find(el => el.type === 'email').value;
+    console.log(email);
     setEnterCounter(prevEnterCounter => prevEnterCounter + 1);
     const credentials = {
       email,
@@ -54,7 +57,7 @@ const LoginForm = () => {
     };
     dispatch(logIn(credentials));
     return notify.info(`It's your ${enterCounter + 1} attempt this session`);
-  }
+  };
 
   return (
     <Formik
@@ -65,40 +68,56 @@ const LoginForm = () => {
       validationSchema={signInSchema}
       onSubmit={handleFormSubmit}
     >
-      {({props}) => (
+      {({ props }) => (
         <Form classNameForm={css.loginForm} handleFormSubmit={handleFormSubmit}>
           <div className={css.loginHeader}>
-            <img alt="" src={wallet} className={css.loginWallet} />
+            <img alt="" src={wallet} className={css.loginHeader__wallet} />
             <h1>Wallet</h1>
           </div>
-          <Field name="email" type="email" className={css.loginInputEmail} />
-          <ErrorMessage
-            name="email"
-            className={css.errorMessage}
-            component="div"
-          />
-          <Field
-            name="password"
-            type="password"
-            className={css.loginInputPassword}
-          />
-          <ErrorMessage
-            name="password"
-            className={css.errorMessage}
-            component="div"
-          />
-          <Button
-            classNameBtn={css.submitButton}
-            type={'submit'}
-            children={'login'}
-          />
-          <NavLink to="/register">
-            <Button
-              classNameBtn={css.registerButton}
-              type={'button'}
-              children={'register'}
+          <div className={css.inputWrapper}>
+            <div className={css.inputWrapper__inputEmail}>
+              <img alt="" src={envelope} />
+              <Field
+                name="email"
+                type="email"
+                placeholder="E-mail"
+                className={css.inputWrapper__email}
+              />
+            </div>
+            <ErrorMessage
+              name="email"
+              className={css.errorMessage}
+              component="div"
             />
-          </NavLink>
+            <div className={css.inputWrapper__inputPassword}>
+              <img alt="" src={padlock} />
+              <Field
+                name="password"
+                type="password"
+                placeholder="Password"
+                className={css.inputWrapper__password}
+              />
+            </div>
+            <ErrorMessage
+              name="password"
+              className={css.errorMessage}
+              component="div"
+            />
+          </div>
+          <div className={css.buttonsWrapper}>
+            <Button
+              classNameBtn={css.buttonsWrapper__submitButton}
+              type={'submit'}
+              children={'login'}
+            />
+            <NavLink to="/register">
+              <Button
+                classNameBtn={css.buttonsWrapper__registerButton}
+                type={'button'}
+                children={'register'}
+              />
+            </NavLink>
+          </div>
         </Form>
       )}
     </Formik>
