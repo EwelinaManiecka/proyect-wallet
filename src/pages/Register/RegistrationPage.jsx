@@ -10,12 +10,12 @@ export default function Register() {
         query="(min-width: 767px)"
         render={() => (
           <div className={css.logo}>
-            <img className={css.regImage} src={image} alt="" />
+            <img className={css.image} src={image} alt="" />
             <h1 className={css.title}>Finance App</h1>
           </div>
         )}
       />
-      <div className={css.formContainer}>
+      <div className={css.form}>
         <RegistrationForm />
       </div>
     </div>
