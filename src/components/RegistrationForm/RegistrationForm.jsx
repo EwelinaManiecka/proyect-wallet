@@ -62,7 +62,6 @@ export const RegistrationForm = () => {
         values,
         errors,
       }) => (
-        <div>
           <Form className={css.form}>
            <img className={css.logo} alt="Logo" src={logo} />
            <div className={css.input}>
@@ -191,7 +190,6 @@ export const RegistrationForm = () => {
               </Link>
             </div>
           </Form>
-        </div>
       )}
     </Formik>
   );
