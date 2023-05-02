@@ -8,6 +8,8 @@ import Loader from './Spinner';
 const HomePage = lazy(() => import('pages/Home/Home'));
 const RegisterPage = lazy(() => import('pages/Register/RegistrationPage'));
 const LoginPage = lazy(() => import('pages/Login/LoginPage'));
+const DashboardPage= lazy(() => import('pages/DashboardPage/DashboardPage'));
+
 
 const App = () => {
   return (
@@ -15,8 +17,9 @@ const App = () => {
       <Loader />
       <Routes>
         <Route path={routes.home} element={<Layout />}>
+          
           <Route index element={<HomePage />} />
-
+          <Route path={routes.dashboard} element={<DashboardPage/>} />
           <Route path={routes.register} element={<RegisterPage />} />
           <Route path={routes.login} element={<LoginPage />} />
 
