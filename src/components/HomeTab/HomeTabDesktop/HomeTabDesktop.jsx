@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import selectors from '../../../redux/auth/selectors';
+import {getTransactionsUser} from '../../../redux/auth/selectors';
 
 import './HomeTabDesktop.module.scss';
 
 const tableHeadData = ['Date', 'Type', 'Category', 'Comment', 'Sum', 'Balance'];
 
 export default function HomeTabDesktop() {
-    const arr = useSelector(selectors.getTransactionsUser);
+    const arr = useSelector(getTransactionsUser);
 
     return (
         <>
