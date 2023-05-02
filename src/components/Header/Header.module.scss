@@ -1,5 +1,61 @@
-.header {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 45px;
+@import '../../common/utils/vars.scss';
+@import '../../common/main.scss';
+
+@import '../../common/utils/vars.scss';
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--dropdown-bg-active-color);
+}
+
+.wallet {
+  display: flex;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.title {
+  font-family: var(--main-font);
+  color: var(--txt-main-color);
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 20px;
+}
+
+.logoutDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--main-font);
+}
+
+.logoutBtn {
+  background-color: var(--dropdown-bg-active-color);
+  border: none;
+  color: var(--txt-inactive-form);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.exitIcon {
+  width: 18px;
+}
+
+.exitTxt {
+  color: var(--txt-inactive-form);
+  font-weight: 400;
+  font-size: 18px;
+  padding-left: 8px;
+}
+
+.name {
+  color: var(--txt-inactive-form);
+  font-weight: 400;
+  font-size: 18px;
 }
