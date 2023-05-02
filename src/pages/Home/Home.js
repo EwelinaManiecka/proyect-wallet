@@ -1,4 +1,4 @@
-import LoginPage from 'pages/Login/LoginPage';
+import LoginPage from 'pages/LoginPage/LoginPage';
 import { getIsAuth } from 'redux/login/selectors';
 import { useSelector } from 'react-redux';
 import css from './Home.module.scss';

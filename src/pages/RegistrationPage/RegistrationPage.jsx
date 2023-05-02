@@ -3,7 +3,7 @@ import Media from 'react-media';
 import image from '../../images/RegistrationPage/Desktop/frame-desktop.png';
 import css from './RegistrationPage.module.scss';
 
-export default function Register() {
+export const RegistrationPage = () => {
   return (
     <div className={css.container}>
       <Media
