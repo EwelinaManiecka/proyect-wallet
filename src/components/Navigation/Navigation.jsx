@@ -9,7 +9,7 @@ import styles from './Navigation.module.css';
 function Navigation({ onClickCurrency }) {
   return (
     <div className={styles.navigation}>
-      <NavLink to="/home" className={styles.navigation__item}>
+      <NavLink to="/dashboard" className={styles.navigation__item}>
         <div className={styles.navigation__icon}>
           <HomeIcon fontSize="inherit" />
         </div>
