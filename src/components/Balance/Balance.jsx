@@ -1,18 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import selectors from '../../redux/auth/selectors';
+// import { useSelector } from 'react-redux';
+// import { getBalance } from '../../redux/auth/selectors';
 
 import styles from './Balance.module.scss';
 
 const Balance = () => {
-    const userBalance = useSelector(selectors.getBalance);
+    // const userBalance = useSelector(getBalance);
 
     return (
         <div className={styles.wrapper}>
-            <h2 className={styles.title}>balance</h2>
+            <h2 className={styles.title}>YOUR BALANCE</h2>
             <p className={styles.text}>
                 <span className={styles.currency}>&#8372;</span>
-                {userBalance}
+                2400000
             </p>
         </div>
     );

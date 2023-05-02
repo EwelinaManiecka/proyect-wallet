@@ -1,5 +1,5 @@
 import transactions from '../transactions.json';
-import './HomeTabMobile.module.scss';
+import './HomeTabMobile.module.css';
    
 
 export default function HomeTabMobile() {
