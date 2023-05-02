@@ -9,7 +9,7 @@ export const GlobalStylesProvider = (
         margin: '0',
       },
       body: {
-        backgroundColor: 'royalblue',
+        backgroundColor: 'rgba(231, 234, 242, 1)',
         padding: '0 20px',
         margin: '0',
         overflowY: 'scroll',
