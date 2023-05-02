@@ -16,10 +16,8 @@ const App = () => {
       <Routes>
         <Route path={routes.home} element={<Layout />}>
           <Route index element={<HomePage />} />
-
           <Route path={routes.register} element={<RegisterPage />} />
           <Route path={routes.login} element={<LoginPage />} />
-
           <Route
             path={routes.notFound}
             element={<Navigate to={routes.home} />}
