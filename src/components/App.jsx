@@ -1,36 +1,54 @@
-import { lazy } from 'react';
-// import { useDispatch } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { Layout } from '../layouts/Layout';
-import { routes } from './routes/routes';
-import Loader from './Spinner';
+import { Routes, Route } from 'react-router-dom';
 
-const HomePage = lazy(() => import('pages/Home/Home'));
-const RegisterPage = lazy(() => import('pages/Register/RegistrationPage'));
-const LoginPage = lazy(() => import('pages/Login/LoginPage'));
-const DashboardPage= lazy(() => import('pages/DashboardPage/DashboardPage'));
+import { PrivateRoute } from '../Routes/PrivateRoute';
+import { PublicRoute } from '../Routes/PublicRoute';
 
+import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage';
+import { LoginPage } from '../pages/LoginPage/LoginPage';
+import { DashboardPage } from '../pages/DashboardPage/DashboardPage';
 
-const App = () => {
+import { StatisticsPage } from '../pages/StatisticsPage/StatisticsPage';
+import { CurrencyPage } from '../pages/CurrencyPage/CurrencyPage';
+
+// import Loader from './Spinner';
+
+export const App = () => {
   return (
     <>
-      <Loader />
       <Routes>
-        <Route path={routes.home} element={<Layout />}>
-          
-          <Route index element={<HomePage />} />
-          <Route path={routes.dashboard} element={<DashboardPage/>} />
-          <Route path={routes.register} element={<RegisterPage />} />
-          <Route path={routes.login} element={<LoginPage />} />
-
-          <Route
-            path={routes.notFound}
-            element={<Navigate to={routes.home} />}
-          />
-        </Route>
+        <Route
+          path="/"
+          element={<PublicRoute redirectTo="/home" component={<LoginPage />} />}
+        />
+        <Route
+          path="/registration"
+          element={
+            <PublicRoute redirectTo="/home" component={<RegistrationPage />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={<PublicRoute redirectTo="/home" component={<LoginPage />} />}
+        />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+          }
+        />
+        <Route
+          path="/statistics"
+          element={
+            <PrivateRoute redirectTo="/login" component={<StatisticsPage />} />
+          }
+        />
+        <Route
+          path="/currency"
+          element={
+            <PrivateRoute redirectTo="/login" component={<CurrencyPage />} />
+          }
+        />
       </Routes>
     </>
   );
 };
-
-export default App;

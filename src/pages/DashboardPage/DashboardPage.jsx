@@ -1,18 +1,23 @@
-import Balance from '../../components/Balance/Balance';
-// import HomeTab from '../../components/HomeTab/HomeTab';
-import style from './DashboardPage.module.scss';
-import Navigation from 'components/Navigation/Navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
+import { selectName } from '../../redux/auth/selectors';
 
-export default function DashboardPage() {
-    
+export const DashboardPage = () => {
+  const dispatch = useDispatch();
+  const userName = useSelector(selectName);
 
-    return (
-        <>
-            <div className={style.dashboard}>
-                <Navigation />
-                <Balance />
-                {/* <HomeTab /> */}
-        </div>
-        </>
-    )
-}
+  return (
+    <>
+      <p> Tutaj ładujemy cały wygląd dashboard </p>
+      <p>{userName}</p>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(logOut());
+        }}
+      >
+        Log Out
+      </button>
+    </>
+  );
+};
