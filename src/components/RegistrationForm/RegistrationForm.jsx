@@ -37,7 +37,7 @@ export const RegistrationForm = () => {
 
   const handleSubmit = ({ name, email, password }) => {
     dispatch(register({ username: name, email: email, password: password }));
-    navigate('/login');
+    navigate('/home');
   };
 
   return (

@@ -3,9 +3,9 @@ import * as Yup from 'yup';
 import { ErrorMessage, Field, Formik } from 'formik';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { logIn } from 'redux/login/operations';
-import { getIsAuth, getIsError } from 'redux/login/selectors';
+import { Link, useNavigate } from 'react-router-dom';
+import { logIn } from 'redux/auth/operations';
+import { selectIsAuth, selectError } from 'redux/auth/selectors';
 import Button from 'common/Button/Button';
 import { Form } from 'common/Form/Form';
 import wallet from '../../images/wallet.svg';
@@ -27,8 +27,9 @@ const signInSchema = Yup.object({
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector(getIsAuth);
-  const isError = useSelector(getIsError);
+  const isAuth = useSelector(selectIsAuth);
+  const isError = useSelector(selectError);
+  const navigate = useNavigate();
   const [enterCounter, setEnterCounter] = useState(0);
 
   useEffect(() => {
@@ -49,13 +50,14 @@ const LoginForm = () => {
     const children = [...e.target];
     const password = children.find(el => el.type === 'password').value;
     const email = children.find(el => el.type === 'email').value;
-    console.log(email);
+    console.log(email, password);
     setEnterCounter(prevEnterCounter => prevEnterCounter + 1);
     const credentials = {
       email,
       password,
     };
     dispatch(logIn(credentials));
+    navigate('/home');
     return notify.info(`It's your ${enterCounter + 1} attempt this session`);
   };
 
@@ -69,7 +71,7 @@ const LoginForm = () => {
       onSubmit={handleFormSubmit}
     >
       {({ props }) => (
-        <Form classNameForm={css.loginForm} handleFormSubmit={handleFormSubmit}>
+        <Form classNameForm={css.loginForm} >
           <div className={css.loginHeader}>
             <img alt="" src={wallet} className={css.loginHeader__wallet} />
             <h1>Wallet</h1>
@@ -110,13 +112,13 @@ const LoginForm = () => {
               type={'submit'}
               children={'login'}
             />
-            <NavLink to="/register">
+            <Link to="/registration">
               <Button
                 classNameBtn={css.buttonsWrapper__registerButton}
                 type={'button'}
-                children={'register'}
+                children={'registration'}
               />
-            </NavLink>
+            </Link>
           </div>
         </Form>
       )}

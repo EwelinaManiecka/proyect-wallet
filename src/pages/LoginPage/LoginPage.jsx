@@ -5,7 +5,7 @@ import bgImg from '../../images/RegistrationPage/Desktop/frame-desktop.png';
 import LoginForm from 'components/LoginForm/LoginForm';
 import css from './LoginPage.module.scss';
 
-const LoginPage = () => {
+export const LoginPage = () => {
   return (
     <div className={css.loginPage}>
       <Media
@@ -40,4 +40,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+
