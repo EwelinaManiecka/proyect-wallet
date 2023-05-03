@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
 import { selectIsAuth, selectError } from 'redux/auth/selectors';
-import Button from 'common/Button/Button';
+import { Button } from 'common/Button/Button';
 import wallet from '../../images/wallet.svg';
 import envelope from '../../images/envelope.svg';
 import padlock from '../../images/padlock.svg';
