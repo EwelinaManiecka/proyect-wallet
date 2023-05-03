@@ -5,6 +5,7 @@ import { authReducer } from './auth/authSlice';
 //import { filterReducer } from './contacts/filterSlice';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
+import { globalReducer } from './global/global-action';
 
 const persistConfig = {
   key: 'auth',
@@ -18,6 +19,7 @@ const persistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
+    global: globalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

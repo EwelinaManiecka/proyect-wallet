@@ -1,5 +1,5 @@
-export const StatisticsPage =() => {
-    return (
-        <p> Tutaj ładujemy cały wygląd Statistisc</p>
-    )
-}
+import Header from 'components/Header/Header';
+
+export const StatisticsPage = () => {
+  return <Header />;
+};

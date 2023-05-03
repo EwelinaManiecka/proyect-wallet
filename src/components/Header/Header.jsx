@@ -2,10 +2,15 @@ import React from 'react';
 import Media from 'react-media';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors.js';
-import { openModalLogout } from 'redux/global/global-action';
+import {
+  closeModalLogout,
+  openModalLogout,
+  resetState,
+} from 'redux/global/global-action';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import ModalLogout from 'components/ModalLogout/ModalLogout';
+import { ModalLogout } from 'components/ModalLogout/ModalLogout';
 // import { useAuth } from 'hooks/useAuth';
 
 // import { logOut } from 'redux/auth/operations';
@@ -24,10 +29,15 @@ function Header() {
   const { name } = useSelector(selectUser);
   // const { isLoggedIn } = useAuth();
 
-  // const handleLogoutClick = () => {
-  //   dispatch(logOut());
-  //   dispatch(openModalLogout());
-  // };
+  const handleLogout = () => {
+    dispatch(resetState());
+    dispatch(closeModalLogout());
+    toast.success('You have been logged out');
+  };
+
+  const handleCloseModalLogout = () => {
+    dispatch(closeModalLogout());
+  };
 
   return (
     <div className={css.main}>
@@ -68,7 +78,11 @@ function Header() {
           </Media>
         </button>
       </div>
-      <ModalLogout isOpen={isModalLogoutOpen} />
+      <ModalLogout
+        isOpen={isModalLogoutOpen}
+        onClose={handleCloseModalLogout}
+        onLogout={handleLogout}
+      />
     </div>
   );
 }
