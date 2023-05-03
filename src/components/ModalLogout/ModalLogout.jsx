@@ -2,20 +2,13 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
-// import css from './ModalLogout.module.scss';
-// import style from '../../common/utils/vars.scss';
+import css from './ModalLogout.module.scss';
 import { resetState } from 'redux/global/global-action';
 import { toast } from 'react-toastify';
 import closeIcon from '../../images/close_btn.svg';
 
-function ModalLogout({ isOpen, onClose }) {
+export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
   const dispatch = useDispatch();
-
-  // const handleKeyDown = event => {
-  //   if (event.code === 'Escape') {
-  //     onClose();
-  //   }
-  // };
 
   const handleOverlayClick = event => {
     if (event.target === event.currentTarget) {
@@ -24,15 +17,25 @@ function ModalLogout({ isOpen, onClose }) {
   };
 
   const handleLogoutClick = () => {
-    dispatch(resetState());
+    try {
+      dispatch(resetState());
+      onLogout();
+      toast.success('You have been logged out');
+    } catch (error) {
+      dispatch(resetState());
+      onClose();
+      toast.error('Something went wrong');
+    }
+  };
+
+  const handleModalClose = () => {
     onClose();
-    toast.success('You have been logged out');
   };
 
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
-        onClose();
+        handleLogoutClick();
       }
     };
 
@@ -42,26 +45,40 @@ function ModalLogout({ isOpen, onClose }) {
         window.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [isOpen, onClose]);
+    // eslint-disable-next-line
+  }, [isOpen]);
 
   return (
     <>
       {isOpen && (
-        <div onClick={handleOverlayClick}>
-          <p>Are you sure, you want to log out?</p>
-          <button type="button" onClick={onClose}>
-            No
-          </button>
-          <button type="button" onClick={handleLogoutClick}>
-            Yes
-          </button>
-          <button onClick={onClose}>
-            <img src={closeIcon} width={12} height={12} alt="close"></img>
+        <div onClick={handleOverlayClick} className={css.modalContainer}>
+          <p className={css.question}>Are you sure, you want to log out?</p>
+          <div className={css.wrapperBtn}>
+            <button
+              className={css.modalBtn}
+              type="button"
+              onClick={handleModalClose}
+              title="logout"
+            >
+              No
+            </button>
+            <button
+              className={css.modalBtn}
+              type="button"
+              onClick={handleLogoutClick}
+            >
+              Yes
+            </button>
+          </div>
+          <button
+            className={css.modalBtn && css.BtnX}
+            onClick={handleModalClose}
+            title="cancel"
+          >
+            <img className={css.xIcon} src={closeIcon} alt="close"></img>
           </button>
         </div>
       )}
     </>
   );
-}
-
-export default ModalLogout;
+};

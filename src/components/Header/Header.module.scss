@@ -1,8 +1,6 @@
 @import '../../common/utils/vars.scss';
 @import '../../common/main.scss';
 
-@import '../../common/utils/vars.scss';
-
 .main {
   display: flex;
   justify-content: space-between;
@@ -45,6 +43,7 @@ img {
 
 .exitIcon {
   width: 18px;
+  fill: var(--txt-inactive-form);
 }
 
 .exitTxt {
@@ -53,6 +52,11 @@ img {
   font-size: 18px;
   padding-left: 8px;
 }
+
+// .exitIcon:hover,
+// .exitIcon:hover {
+//   fill: var(--expense-color);
+// }
 
 .name {
   color: var(--txt-inactive-form);

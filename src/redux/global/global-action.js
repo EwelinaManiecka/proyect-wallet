@@ -2,6 +2,7 @@ import { createAction, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isModalLogoutOpen: false,
+  modalType: null,
 };
 
 export const resetState = createAction('global/resetState');
@@ -11,10 +12,13 @@ const globalSlice = createSlice({
   initialState,
   reducers: {
     openModalLogout(state) {
-      state.isModalLogoutOpen = true;
+      state.isModalLogoutOpen = !state.isModalLogoutOpen;
     },
     closeModalLogout(state) {
-      state.isModalLogoutOpen = false;
+      state.isModalLogoutOpen = !state.isModalLogoutOpen;
+    },
+    setModalType(state, action) {
+      state.modalType = action.payload;
     },
   },
 });

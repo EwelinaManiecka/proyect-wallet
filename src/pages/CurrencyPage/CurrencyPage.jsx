@@ -6,4 +6,5 @@ export const CurrencyPage = () => {
       <Currency />
     </div>
   );
+
 };
