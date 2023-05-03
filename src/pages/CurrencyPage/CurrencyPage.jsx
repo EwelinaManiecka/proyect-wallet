@@ -1,3 +1,10 @@
+import { Currency } from 'components/Currency/Currency';
+
 export const CurrencyPage = () => {
-  return <p> Tutaj ładujemy cały wygląd currency </p>;
+  return (
+    <div>
+      <Currency />
+    </div>
+  );
+
 };

@@ -1,0 +1,21 @@
+.text {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--txt-inactive-form);
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--txt-inactive-form);
+    height: 24px;
+    padding: 8px 8px 8px 45px;
+
+    @media screen and (min-width: 768px) {
+        height: 32px;
+    }
+    
+        &:focus {
+            border-bottom: 1px solid var(--income-color);
+        }
+}
