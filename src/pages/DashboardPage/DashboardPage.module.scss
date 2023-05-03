@@ -20,6 +20,8 @@
 }
 @media screen and (min-width: 1280px) {
   .dashboard {
+    display: flex;
+    justify-content: space-between;
     padding: 40px 85px 0px 25px;
     position: relative;
     min-height: 100%;
