@@ -4,6 +4,7 @@
 // import Header from 'components/Header/Header';
 import Navigation from 'components/Navigation/Navigation';
 import Balance from 'components/Balance/Balance';
+import { Currency } from 'components/Currency/Currency';
 import { Table } from '../../components/Table/Table';
 import {ButtonAddTransactions } from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 import css from './DashboardPage.module.scss';
@@ -19,12 +20,12 @@ export const DashboardPage = () => {
       <div className={css.container}>
        
         <div className={css.dashboard}>
-        <Navigation />
-       
-        <Balance />
-          
-        
-        <div className={css.wrapper}>
+          <div>
+          <Navigation />
+          <Balance />
+          <Currency /> 
+        </div>
+      <div className={css.wrapper}>
          <Table />
           </div>
         </div>
