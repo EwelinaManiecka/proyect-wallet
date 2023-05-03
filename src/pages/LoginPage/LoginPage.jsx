@@ -9,7 +9,6 @@ import { Currency } from 'components/Currency/Currency';
 export const LoginPage = () => {
   return (
     <div className={css.loginPage}>
-      <Currency />
       <Media
         queries={{
           tablet: '(min-width: 767px) and (max-width: 1280px)',
