@@ -1,24 +1,27 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import Notiflix from 'notiflix';
 import { register } from 'redux/auth/operations';
+import { selectIsAuth } from 'redux/auth/selectors';
 import { StrengthPasswordMeter } from '../StrengthPasswordMeter/StrengthPasswordMeter';
+import { Button, } from '../../common/Button/Button';
+import { Input } from '../../common/Form/Input';
 import css from './RegistrationForm.module.scss';
+import btn from '../../common/Button/button.module.scss';
+import input from '../../common/Form/Input.module.scss';
+
 import logo from '../../images/logo.svg';
 import envelope from '../../images/envelope.svg';
 import padlock from '../../images/padlock.svg';
 import avatar from '../../images/avatar.svg';
 
-export const RegistrationForm = () => {
-  const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const notify = Notiflix.Notify;
 
-  const signUpSchema = Yup.object({
+const signUpSchema = Yup.object({
     email: Yup.string()
       .email('Enter the valid email')
       .required('The email field is required'),
@@ -33,6 +36,18 @@ export const RegistrationForm = () => {
       .min(1, 'The name must be consist of at least 1 symbol')
       .max(12, 'The name should not be more than 12 symbols')
       .required('Enter you first name'),
+  });
+
+export const RegistrationForm = () => {
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isAuth) {
+      return notify.success('Successfully registered!');
+    }
   });
 
   const handleSubmit = ({ name, email, password }) => {
@@ -54,7 +69,6 @@ export const RegistrationForm = () => {
     >
       {({
         handleChange,
-        handleBlur,
         touched,
         isValid,
         dirty,
@@ -79,15 +93,14 @@ export const RegistrationForm = () => {
               </p>
             ) : null}
             <img className={css.input__icon} alt="Logo" src={envelope} />
-            <input
-              className={css.input__text}
+            <Input
+              classNameInput={input.text}
               type="text"
               name="email"
-              id="email"
+              idInput="email"
               placeholder="E-mail"
               value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              handleChange={handleChange}
             />
           </div>
           <div className={css.input}>
@@ -107,14 +120,13 @@ export const RegistrationForm = () => {
             ) : null}
             <img className={css.input__icon} alt="Logo" src={padlock} />
             <input
-              className={css.input__text}
+              className={input.text}
               type="password"
               name="password"
               placeholder="Password"
               id="password"
               value={values.password}
               onChange={handleChange}
-              onBlur={handleBlur}
               onInput={e => setPassword(e.target.value)}
             />
           </div>
@@ -134,15 +146,14 @@ export const RegistrationForm = () => {
               </p>
             ) : null}
             <img className={css.input__icon} alt="Logo" src={padlock} />
-            <input
-              className={css.input__text}
+            <Input
+              classNameInput={input.text}
               type="password"
               name="confirmPassword"
-              id="confirmPassword"
+              idInput="confirmPassword"
               placeholder="Confirm password"
               value={values.confirmPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              handleChange={handleChange}
             />
             <StrengthPasswordMeter password={password} />
           </div>
@@ -162,29 +173,29 @@ export const RegistrationForm = () => {
               </p>
             ) : null}
             <img className={css.input__icon} alt="Logo" src={avatar} />
-            <input
-              className={css.input__text}
+             <Input
+              classNameInput={input.text}
+               className={css.input__text}
               type="text"
               name="name"
-              id="name"
+              idInput="name"
               placeholder="First name"
               value={values.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              handleChange={handleChange}
             />
           </div>
-          <div className={css.button}>
-            <button
-              type="submit"
-              className={css.button__register}
-              disabled={!isValid && !dirty}
-            >
-              Register
-            </button>
+          <div className={css.container__btn}>
+            <Button
+                classNameBtn={btn.green}
+                type={'submit'}
+                children={'register'}
+              />
             <Link to="/">
-              <button type="button" className={css.button__login}>
-                Log in
-              </button>
+              <Button
+                classNameBtn={btn.white}
+                type={'button'}
+                children={'log in'}
+              />
             </Link>
           </div>
         </Form>
