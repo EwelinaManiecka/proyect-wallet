@@ -2,7 +2,7 @@ import Media from 'react-media';
 import { Fragment } from 'react';
 import bgImgX2 from '../../images/RegistrationPage/Desktop/frame-desktop-2x.png';
 import bgImg from '../../images/RegistrationPage/Desktop/frame-desktop.png';
-import LoginForm from 'components/LoginForm/LoginForm';
+import { LoginForm } from 'components/LoginForm/LoginForm';
 import css from './LoginPage.module.scss';
 
 export const LoginPage = () => {
@@ -39,5 +39,3 @@ export const LoginPage = () => {
     </div>
   );
 };
-
-

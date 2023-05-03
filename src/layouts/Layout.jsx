@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Header from 'components/Header/Header';
+import { Currency } from 'components/Currency/Currency';
 
 export const Layout = () => (
   <div>
     <Header />
+    <Currency />
     <Suspense
       fallback={
         <div

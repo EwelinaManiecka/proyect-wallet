@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
-import { ErrorMessage, Field, Formik } from 'formik';
+import { ErrorMessage, Field, Formik, Form } from 'formik';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
 import { selectIsAuth, selectError } from 'redux/auth/selectors';
 import Button from 'common/Button/Button';
-import { Form } from 'common/Form/Form';
 import wallet from '../../images/wallet.svg';
 import envelope from '../../images/envelope.svg';
 import padlock from '../../images/padlock.svg';
@@ -25,7 +24,7 @@ const signInSchema = Yup.object({
     .required('The password field is required'),
 });
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const isError = useSelector(selectError);
@@ -46,15 +45,10 @@ const LoginForm = () => {
   });
 
   const handleFormSubmit = e => {
-    e.preventDefault();
-    const children = [...e.target];
-    const password = children.find(el => el.type === 'password').value;
-    const email = children.find(el => el.type === 'email').value;
-    console.log(email, password);
     setEnterCounter(prevEnterCounter => prevEnterCounter + 1);
     const credentials = {
-      email,
-      password,
+      email: e.email,
+      password: e.password,
     };
     dispatch(logIn(credentials));
     navigate('/home');
@@ -71,7 +65,7 @@ const LoginForm = () => {
       onSubmit={handleFormSubmit}
     >
       {({ props }) => (
-        <Form classNameForm={css.loginForm} >
+        <Form className={css.loginForm}>
           <div className={css.loginHeader}>
             <img alt="" src={wallet} className={css.loginHeader__wallet} />
             <h1>Wallet</h1>
@@ -125,5 +119,3 @@ const LoginForm = () => {
     </Formik>
   );
 };
-
-export default LoginForm;
