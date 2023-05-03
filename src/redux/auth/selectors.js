@@ -6,6 +6,8 @@ export const selectName = state => state.auth.user.name;
 
 export const selectId = state => state.auth.user._id;
 
+export const getAuthRefresh = state => state.auth.isAuthRefresh;
+
 export const selectIsAuth = state => state.auth.isAuth;
 
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
