@@ -4,7 +4,6 @@ import bgImgX2 from '../../images/RegistrationPage/Desktop/frame-desktop-2x.png'
 import bgImg from '../../images/RegistrationPage/Desktop/frame-desktop.png';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import css from './LoginPage.module.scss';
-import { Currency } from 'components/Currency/Currency';
 
 export const LoginPage = () => {
   return (
