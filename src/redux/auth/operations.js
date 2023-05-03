@@ -11,7 +11,6 @@ const clearAuthToken = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-
 export const register = createAsyncThunk(
   'auth/sign-up',
   async (credentials, thunkAPI) => {
@@ -37,7 +36,6 @@ export const logIn = createAsyncThunk(
     }
   }
 );
-
 
 export const logOut = createAsyncThunk('sign-out', async (_, thunkAPI) => {
   try {
