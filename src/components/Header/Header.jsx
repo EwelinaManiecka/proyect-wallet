@@ -25,7 +25,8 @@ function Header() {
     state => state.global.isModalLogoutOpen
   );
   const dispatch = useDispatch();
-  const { name } = useAuth();
+  const { user } = useAuth();
+  console.log(user);
   // const { isLoggedIn } = useAuth();
 
   const handleLogout = () => {
@@ -48,7 +49,7 @@ function Header() {
         <p className={css.title}>Wallet</p>
       </div>
       <div className={css.logoutDiv}>
-        <p className={css.name}>{name || 'unknow'}</p>
+        <p className={css.name}>{user || 'unknow'}</p>
 
         <Media queries={mediaQueries}>
           {matches =>
