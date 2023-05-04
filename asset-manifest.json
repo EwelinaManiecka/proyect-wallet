@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/proyect-wallet/static/css/main.f537d4ce.css",
-    "main.js": "/proyect-wallet/static/js/main.89670b96.js",
+    "main.css": "/proyect-wallet/static/css/main.aef8aca8.css",
+    "main.js": "/proyect-wallet/static/js/main.4606b1fd.js",
     "static/media/bg-desktop-dashboard.png": "/proyect-wallet/static/media/bg-desktop-dashboard.047fbac0dc03289acc61.png",
     "static/media/bg-tablet-dashboard.png": "/proyect-wallet/static/media/bg-tablet-dashboard.7c86bea02ec742609411.png",
     "static/media/circe.ttf": "/proyect-wallet/static/media/circe.814e4dd4329ffdb6c9ed.ttf",
@@ -22,11 +22,11 @@
     "static/media/envelope.svg": "/proyect-wallet/static/media/envelope.82e59d03ff9d9aa2430b6893a0f242e9.svg",
     "static/media/close_btn.svg": "/proyect-wallet/static/media/close_btn.4ca60f1813426122dabf98a3268fb691.svg",
     "static/media/vertical-line.svg": "/proyect-wallet/static/media/vertical-line.4197971255a4c6a047f2d568d14b817e.svg",
-    "main.f537d4ce.css.map": "/proyect-wallet/static/css/main.f537d4ce.css.map",
-    "main.89670b96.js.map": "/proyect-wallet/static/js/main.89670b96.js.map"
+    "main.aef8aca8.css.map": "/proyect-wallet/static/css/main.aef8aca8.css.map",
+    "main.4606b1fd.js.map": "/proyect-wallet/static/js/main.4606b1fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.f537d4ce.css",
-    "static/js/main.89670b96.js"
+    "static/css/main.aef8aca8.css",
+    "static/js/main.4606b1fd.js"
   ]
 }
