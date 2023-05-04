@@ -1,11 +1,13 @@
 .modal {
   position: relative;
   display: flex;
+  gap: 30px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 40px 70px;
+  padding: 30px 20px;
   border-radius: 10px;
+  width: 320px;
   background-color: #fff;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1200;
@@ -13,12 +15,20 @@
   &__title {
     font-weight: 400;
     font-family: poppins;
-    font-size: 30px;
+    font-size: 24px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 30px;
+    }
   }
 
   @media screen and (min-width: 768px) {
     height: 468px;
     width: 533px;
+    padding: 40px 70px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 100%;
   }
 
   &:hover {
@@ -97,6 +107,8 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 
@@ -157,21 +169,32 @@ input:checked + .slider:before {
 }
 .inputcontainer {
   display: flex;
+  flex-direction: column;
   gap: 30px;
   justify-content: space-between;
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .number {
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  width: 50%;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
 }
 
 .date {
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  width: 50%;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
 }
 
 .comment {
@@ -181,4 +204,6 @@ input:checked + .slider:before {
   width: 100%;
 }
 
-.green {color:#24cca7 }
+.green {
+  color: #24cca7;
+}
