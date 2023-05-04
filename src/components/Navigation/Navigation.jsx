@@ -4,35 +4,33 @@ import HomeIcon from '@mui/icons-material/Home';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
-import styles from './Navigation.module.css';
+import css from './Navigation.module.scss';
 
-function Navigation({ onClickCurrency }) {
+export function Navigation({ onClickCurrency }) {
   return (
-    <div className={styles.navigation}>
-      <NavLink to="/dashboard" className={styles.navigation__item}>
-        <div className={styles.navigation__icon}>
+    <div className={css.navigation}>
+      <NavLink to="/dashboard" className={css.navigation__item}>
+        <div className={css.navigation__icon}>
           <HomeIcon fontSize="inherit" />
         </div>
-        <div className={styles.navigation__text}>Home</div>
+        <div className={css.navigation__text}>Home</div>
       </NavLink>
-      <NavLink to="/statistics" className={styles.navigation__item}>
-        <div className={styles.navigation__icon}>
+      <NavLink to="/statistics" className={css.navigation__item}>
+        <div className={css.navigation__icon}>
           <TimelineIcon fontSize="inherit" />
         </div>
 
-        <div className={styles.navigation__text}>Statistics</div>
+        <div className={css.navigation__text}>Statistics</div>
       </NavLink>
       <NavLink
         to="/currency"
-        className={styles.navigation__item}
+        className={css.navigation__item}
         onClick={onClickCurrency}
       >
-        <div className={styles.navigation__icon}>
+        <div className={css.navigation__icon}>
           <AttachMoneyIcon fontSize="inherit" />
         </div>
       </NavLink>
     </div>
   );
 }
-
-export default Navigation;

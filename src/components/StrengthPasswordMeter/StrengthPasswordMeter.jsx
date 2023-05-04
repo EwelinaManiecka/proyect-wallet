@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './StrengthPasswordMeter.module.css';
 import zxcvbn from 'zxcvbn';
+
+import css from './StrengthPasswordMeter.module.scss';
 
 export const StrengthPasswordMeter = ({ password }) => {
   const testResult = zxcvbn(password);
@@ -31,8 +32,8 @@ export const StrengthPasswordMeter = ({ password }) => {
 
   return (
     <>
-      <div className={styles.progressBar}>
-        <div className={styles.progress} style={changePasswordColor()}></div>
+      <div className={css.progress}>
+        <div className={css.progress_bar} style={changePasswordColor()}></div>
       </div>
     </>
   );
