@@ -1,5 +1,5 @@
-@import '../../common/utils/vars.scss';
-@import '../../common/main.scss';
+// @import '../../common/utils/vars.scss';
+// @import '../../common/main.scss';
 
 .main {
   display: flex;
@@ -18,11 +18,12 @@ img {
 }
 
 .title {
-  font-family: var(--main-font);
+  font-family: poppins;
   color: var(--txt-main-color);
   font-weight: 700;
   font-size: 30px;
   padding-left: 20px;
+  line-height: 45px;
 }
 
 .logoutDiv {
@@ -51,6 +52,7 @@ img {
   font-weight: 400;
   font-size: 18px;
   padding-left: 8px;
+  line-height: 26.53px;
 }
 
 // .exitIcon:hover,
@@ -59,7 +61,10 @@ img {
 // }
 
 .name {
+  font-family: circe;
   color: var(--txt-inactive-form);
   font-weight: 400;
   font-size: 18px;
+  line-height: 26.53px;
+
 }

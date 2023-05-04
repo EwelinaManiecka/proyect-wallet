@@ -2,7 +2,7 @@ export const selectUser = state => state.auth.user;
 
 export const selectToken = state => state.auth.token;
 
-export const selectName = state => state.auth.user.name;
+export const selectName = state => state.auth.user.username;
 
 export const selectId = state => state.auth.user._id;
 

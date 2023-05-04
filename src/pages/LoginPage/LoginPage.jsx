@@ -4,12 +4,10 @@ import bgImgX2 from '../../images/RegistrationPage/Desktop/frame-desktop-2x.png'
 import bgImg from '../../images/RegistrationPage/Desktop/frame-desktop.png';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import css from './LoginPage.module.scss';
-import Header from 'components/Header/Header';
 
 export const LoginPage = () => {
   return (
     <>
-      <Header />
       <div className={css.loginPage}>
         <Media
           queries={{
