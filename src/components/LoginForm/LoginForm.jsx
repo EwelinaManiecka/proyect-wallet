@@ -72,7 +72,11 @@ export const LoginForm = () => {
           </div>
           <div className={css.inputWrapper}>
             <div className={css.inputWrapper__inputEmail}>
-              <img alt="" src={envelope} />
+              <img
+                className={css.inputWrapper__envelope}
+                alt=""
+                src={envelope}
+              />
               <Field
                 name="email"
                 type="email"
@@ -86,7 +90,7 @@ export const LoginForm = () => {
               component="div"
             />
             <div className={css.inputWrapper__inputPassword}>
-              <img alt="" src={padlock} />
+              <img className={css.inputWrapper__padlock} alt="" src={padlock} />
               <Field
                 name="password"
                 type="password"
