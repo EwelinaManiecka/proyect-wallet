@@ -44,7 +44,7 @@
 
 }
 
-.row__icons {margin-left: auto; display: flex}
+.row__icons {margin-left: auto; display: flex; align-items: center}
 .row__delete {
   background-color: rgba(36, 204, 167, 1);
   border-radius: 18px;
@@ -55,4 +55,4 @@
   margin-left: 9px
 }
 
-.row__edit {cursor: pointer}
+.row__edit {cursor: pointer; width: 14px; height: 14px}
