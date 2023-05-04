@@ -1,13 +1,28 @@
+import { toggleModalAddTransaction } from 'redux/global/global-action';
+import { useDispatch } from 'react-redux';
+
 import css from './ModalAddTransaction.module.scss';
-import Button from 'common/Button/Button';
+import { Button } from 'common/Button/Button';
 import closeBtn from './../../images/close_btn.svg';
 import { useState } from 'react';
 
 export const ModalAddTransaction = () => {
   const [checked, setChecked] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const toggleModal = event => {
+    if (
+      event.target.nodeName === 'DIV' ||
+      event.target.nodeName === 'IMG' ||
+      event.target.type === 'button'
+    ) {
+      dispatch(toggleModalAddTransaction());
+    }
+  };
+
   return (
-    <div className={css.overlay}>
+    <div className={css.overlay} onClick={(event) => toggleModal(event)}>
       <form className={css.modal}>
         <h1 className={css.modal__title}>Add transaction</h1>
         <div className={css.switcherContainer}>
@@ -16,7 +31,7 @@ export const ModalAddTransaction = () => {
             <input
               type="checkbox"
               checked={checked}
-              onClick={() => setChecked(!checked)}
+              onChange={() => setChecked(!checked)}
               defaultChecked
             ></input>
             <span className={css.slider}></span>
@@ -48,13 +63,7 @@ export const ModalAddTransaction = () => {
             children={'Cancel'}
           />
         </div>
-        <img
-          className={css.closebtn}
-          src={closeBtn}
-          width="16"
-          height="16"
-          alt="closeBTN"
-        ></img>
+        <img className={css.closebtn} src={closeBtn} alt="closeBTN"></img>
       </form>
     </div>
   );
