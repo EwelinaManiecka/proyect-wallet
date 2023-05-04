@@ -1,7 +1,7 @@
 import React from 'react';
 import Media from 'react-media';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors.js';
+// import { selectName } from 'redux/auth/selectors.js';
 import {
   closeModalLogout,
   openModalLogout,
@@ -9,11 +9,10 @@ import {
 } from 'redux/global/global-action';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { logOut, fetchCurrentUser } from 'redux/auth/operations';
 
 import { ModalLogout } from 'components/ModalLogout/ModalLogout';
-// import { useAuth } from 'hooks/useAuth';
-
-// import { logOut } from 'redux/auth/operations';
+import { useAuth } from 'hooks/useAuth';
 
 import exitIcon from '../../images/logout_btn.svg';
 import walletIcon from '../../images/wallet.svg';
@@ -26,17 +25,18 @@ function Header() {
     state => state.global.isModalLogoutOpen
   );
   const dispatch = useDispatch();
-  const { name } = useSelector(selectUser);
+  const { name } = useAuth();
   // const { isLoggedIn } = useAuth();
 
   const handleLogout = () => {
     dispatch(resetState());
-    dispatch(closeModalLogout());
+    dispatch(logOut());
     toast.success('You have been logged out');
   };
 
   const handleCloseModalLogout = () => {
     dispatch(closeModalLogout());
+    dispatch(fetchCurrentUser());
   };
 
   return (
@@ -48,7 +48,7 @@ function Header() {
         <p className={css.title}>Wallet</p>
       </div>
       <div className={css.logoutDiv}>
-        <p className={css.name}>NAME {name}</p>
+        <p className={css.name}>{name || 'unknow'}</p>
 
         <Media queries={mediaQueries}>
           {matches =>
