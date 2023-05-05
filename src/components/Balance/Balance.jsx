@@ -4,7 +4,7 @@ import React from 'react';
 
 import styles from './Balance.module.scss';
 
-const Balance = () => {
+export const Balance = () => {
     // const userBalance = useSelector(getBalance);
 
     return (
@@ -17,5 +17,3 @@ const Balance = () => {
         </div>
     );
 };
-
-export default Balance;
