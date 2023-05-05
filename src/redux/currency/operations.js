@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const currencyInstance = axios.create({
-  baseURL: 'http://api.nbp.pl/api/.',
+  baseURL: 'https://api.nbp.pl/api/.',
   timeout: 8000,
   mode: 'cors',
 });
