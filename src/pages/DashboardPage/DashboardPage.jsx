@@ -1,7 +1,7 @@
 // import { useDispatch, useSelector } from 'react-redux';
 // import { logOut } from 'redux/auth/operations';
 // import { selectName } from '../../redux/auth/selectors';
-import Header from 'components/Header/Header';
+import { Header } from 'components/Header/Header';
 import Navigation from 'components/Navigation/Navigation';
 import Balance from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
