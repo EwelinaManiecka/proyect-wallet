@@ -1,9 +1,11 @@
-import Header from 'components/Header/Header';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Balance }  from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { ChartDoughnut } from '../../components/Chart/Chart';
+import { Header } from 'components/Header/Header';
+
 import css from './StatisticsPage.module.scss';
+
 export const StatisticsPage = () => {
   return (
     <>

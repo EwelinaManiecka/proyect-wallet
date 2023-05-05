@@ -1,24 +1,24 @@
 import { useSelector } from 'react-redux';
-// import { logOut } from 'redux/auth/operations';
-// import { selectName } from '../../redux/auth/selectors';
 
-import Header from 'components/Header/Header';
+import { Header } from 'components/Header/Header';
 import { Navigation } from 'components/Navigation/Navigation';
+
 import { Balance } from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { Table } from '../../components/Table/Table';
-import { selectIsAddTransactionModalopen } from 'components/global/selectors';
+import { selectIsEditTransactionModalOpen, selectIsAddTransactionModalopen } from 'redux/global/selectors';
 import { ModalAddTransaction } from 'components/ModalAddTransaction/ModalAddTransaction';
+import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import { ButtonAddTransactions } from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import css from './DashboardPage.module.scss';
-// import Media from 'react-media';
 
 export const DashboardPage = () => {
-  // const dispatch = useDispatch();
-  // const userName = useSelector(selectName);
   const isModalAddTransactionOpened = useSelector(
     selectIsAddTransactionModalopen
+  );
+  const isModalEditTransactionOpened = useSelector(
+    selectIsEditTransactionModalOpen
   );
 
   return (
@@ -43,6 +43,9 @@ export const DashboardPage = () => {
         <ButtonAddTransactions />
         {isModalAddTransactionOpened && (
           <ModalAddTransaction></ModalAddTransaction>
+        )}
+        {isModalEditTransactionOpened && (
+          <ModalEditTransaction></ModalEditTransaction>
         )}
       </div>
     </>
