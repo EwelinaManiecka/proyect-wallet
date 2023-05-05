@@ -48,10 +48,18 @@
 
         &>img {
             position: absolute;
+            width: 20px;
+            height: 20px;
             left: 10px;
             top: 10px;
         }
     }
+
+    &__envelope {
+        width: 20px;
+        height: 16px;
+    }
+
 
     &__email {
         width: 280px;
@@ -85,6 +93,11 @@
             left: 12px;
             top: 7px;
         }
+    }
+
+    &__padlock {
+        width: 16px;
+        height: 21px;
     }
 
     &__password {

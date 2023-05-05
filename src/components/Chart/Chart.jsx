@@ -1,9 +1,9 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
-import styles from './Chart.module.scss';
+import css from './Chart.module.scss';
 
-const ChartDoughnut = ({ categories, colors, expense }) => {
+export const ChartDoughnut = ({ categories, colors, expense }) => {
   ChartJS.register(ArcElement, Tooltip, Legend);
 
   const data = {
@@ -31,23 +31,29 @@ const ChartDoughnut = ({ categories, colors, expense }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={css.chart}>
       {expense ? (
         <>
-          <Doughnut data={data} options={options} className={styles.doughnut} />
-          <p className={styles.expense}>{expense} PLN</p>
+          <Doughnut
+            data={data}
+            options={options}
+            className={css.chart__doughnut}
+          />
+          <p className={css.chart__expense}>{expense} PLN</p>
         </>
       ) : (
         <>
-          <Doughnut data={data} options={options} className={styles.doughnut} />
-          <p className={styles.expense}>No Expenses</p>
+          <Doughnut
+            data={data}
+            options={options}
+            className={css.chart__doughnut}
+          />
+          <p className={css.chart__expense}>No Expenses</p>
         </>
       )}
     </div>
   );
 };
-
-export default ChartDoughnut;
 
 // Kolory do połączenia z Kategoriami w Statistics
 

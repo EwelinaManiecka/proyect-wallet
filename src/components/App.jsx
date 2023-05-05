@@ -56,6 +56,12 @@ export const App = () => {
           }
         />
         <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+          }
+        />
+        <Route
           path="/currency"
           element={
             <PrivateRoute redirectTo="/login" component={<CurrencyPage />} />

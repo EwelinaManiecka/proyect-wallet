@@ -27,6 +27,5 @@ const globalSlice = createSlice({
   },
 });
 
-export const { openModalLogout, closeModalLogout, toggleModalAddTransaction } =
-  globalSlice.actions;
+export const { openModalLogout, closeModalLogout, toggleModalAddTransaction } = globalSlice.actions;
 export const globalReducer = globalSlice.reducer;
