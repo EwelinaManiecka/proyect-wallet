@@ -22,7 +22,7 @@ export const ModalAddTransaction = () => {
   };
 
   return (
-    <div className={css.overlay} onClick={(event) => toggleModal(event)}>
+    <div className={css.overlay} onClick={event => toggleModal(event)}>
       <form className={css.modal}>
         <h1 className={css.modal__title}>Add transaction</h1>
         <div className={css.switcherContainer}>
@@ -34,10 +34,23 @@ export const ModalAddTransaction = () => {
               onChange={() => setChecked(!checked)}
               defaultChecked
             ></input>
-            <span className={css.slider}></span>
+            <span className={!checked ? css.slider : css.sliderred}></span>
           </label>
-          <p className={checked && css.green}>Expense</p>
+          <p className={checked && css.red}>Expense</p>
         </div>
+        {checked && (
+          <select className={css.categories}>
+            <option className={css.categories__title} value="select">Select a category</option>
+            <option value="Main">Main expenses</option>
+            <option value="Products">Products</option>
+            <option value="Self">Self care</option>
+            <option value="Child">Child care</option>
+            <option value="Household">Household products</option>
+            <option value="Child">Education</option>
+            <option value="Other">Other expenses</option>
+            <option value="Entertainment">Entertainment</option>
+          </select>
+        )}
         <div className={css.inputcontainer}>
           <input
             type="number"

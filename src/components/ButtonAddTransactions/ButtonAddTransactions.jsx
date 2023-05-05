@@ -8,18 +8,16 @@ export const ButtonAddTransactions = () => {
   const dispatch = useDispatch();
 
   const toggleModal = () => {
-    dispatch(toggleModalAddTransaction())
-  }
-  
+    dispatch(toggleModalAddTransaction());
+  };
+
   return (
     <div className={css.container}>
       <img
         className={css.plusBtn}
         src={elipse}
         alt="ButtonAddTransactions"
-        width="44"
-        height="44"
-        onClick={()=> toggleModal() }
+        onClick={() => toggleModal()}
       ></img>
     </div>
   );
