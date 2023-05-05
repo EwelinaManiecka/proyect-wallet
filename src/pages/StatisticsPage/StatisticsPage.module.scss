@@ -1,0 +1,56 @@
+.dashboard {
+  padding-top: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-width: 100%;
+  min-height: 940px;
+  background-color: rgba(208, 202, 202, 0.2);
+
+}
+@media screen and (min-width: 768px) {
+  .dashboard {
+    padding: 20px 40px 20px 40px;
+    height: 944px;
+    background-image: url("../../images/Dashboard/bg-tablet-dashboard.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+   
+  }
+}
+@media screen and (min-width: 1280px) {
+  .dashboard {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 85px 0px 25px;
+    position: relative;
+    min-height: 100%;
+    background-image: url("../../images/Dashboard/bg-desktop-dashboard.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      margin-left: 480px;
+      height: calc(100vh - 5px);
+      border: 1px solid #e7e5f2;
+      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+        1px 0px 0px rgba(255, 255, 255, 0.6);
+     }
+    }
+  }
+@media screen and (min-width: 1280px){
+.dashboard__chart{
+    margin-top: 32px;
+    margin-right: 343px;
+  }
+  .chart__title{
+    font-family: 'Poppins';
+    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
