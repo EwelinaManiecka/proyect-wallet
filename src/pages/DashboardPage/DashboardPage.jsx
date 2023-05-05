@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import Header from 'components/Header/Header';
 import { Navigation } from 'components/Navigation/Navigation';
-import Balance from 'components/Balance/Balance';
+import { Balance } from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { Table } from '../../components/Table/Table';
 import { selectIsAddTransactionModalopen } from 'components/global/selectors';
@@ -33,9 +33,12 @@ export const DashboardPage = () => {
             <Balance />
             <Currency />
           </div>
+          <div className={css.table}>
           <div className={css.wrapper}>
             <Table />
           </div>
+          </div>
+          
         </div>
         <ButtonAddTransactions />
         {isModalAddTransactionOpened && (
