@@ -20,7 +20,7 @@ import verticalLine from '../../images/vertical-line.svg';
 import css from './Header.module.scss';
 import { mediaQueries } from 'common/utils/media';
 
-function Header() {
+export const Header = () => {
   const isModalLogoutOpen = useSelector(
     state => state.global.isModalLogoutOpen
   );
@@ -86,6 +86,4 @@ function Header() {
       />
     </div>
   );
-}
-
-export default Header;
+};
