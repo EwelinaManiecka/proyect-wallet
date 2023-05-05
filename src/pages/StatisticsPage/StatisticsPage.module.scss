@@ -1,4 +1,3 @@
-
 .dashboard {
   padding-top: 60px;
   padding-left: 20px;
@@ -19,18 +18,7 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .container {
-    display: block;
-  }
-  .table{
-   display: flex;
-   margin-left: 165px;
-
-  }
   .dashboard {
-    flex-direction: row;
-    width: 1280px;
-    padding: 0px 16px;
     display: flex;
     justify-content: space-between;
     padding: 40px 85px 0px 25px;
@@ -45,12 +33,24 @@
       top: 0;
       width: 0;
       margin-left: 480px;
-      height: 100%;
+      height: calc(100vh - 5px);
       border: 1px solid #e7e5f2;
       box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
         1px 0px 0px rgba(255, 255, 255, 0.6);
      }
     }
   }
-  
-
+@media screen and (min-width: 1280px){
+.dashboard__chart{
+    margin-top: 32px;
+    margin-right: 343px;
+  }
+  .chart__title{
+    font-family: 'Poppins';
+    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
