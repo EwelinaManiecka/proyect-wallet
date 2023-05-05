@@ -7,8 +7,9 @@ import { Navigation } from 'components/Navigation/Navigation';
 import Balance from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { Table } from '../../components/Table/Table';
-import { selectIsAddTransactionModalopen } from 'components/global/selectors';
+import { selectIsEditTransactionModalOpen, selectIsAddTransactionModalopen } from 'redux/global/selectors';
 import { ModalAddTransaction } from 'components/ModalAddTransaction/ModalAddTransaction';
+import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import { ButtonAddTransactions } from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import css from './DashboardPage.module.scss';
@@ -19,6 +20,9 @@ export const DashboardPage = () => {
   // const userName = useSelector(selectName);
   const isModalAddTransactionOpened = useSelector(
     selectIsAddTransactionModalopen
+  );
+  const isModalEditTransactionOpened = useSelector(
+    selectIsEditTransactionModalOpen
   );
 
   return (
@@ -40,6 +44,9 @@ export const DashboardPage = () => {
         <ButtonAddTransactions />
         {isModalAddTransactionOpened && (
           <ModalAddTransaction></ModalAddTransaction>
+        )}
+        {isModalEditTransactionOpened && (
+          <ModalEditTransaction></ModalEditTransaction>
         )}
       </div>
     </>
