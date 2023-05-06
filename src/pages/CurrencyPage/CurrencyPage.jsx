@@ -5,7 +5,6 @@ import { Footer } from 'components/Footer/Footer';
 export const CurrencyPage = () => {
   return (
     <div>
-      <Header />
       <Currency />
       <Footer />
     </div>
