@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrencies } from 'redux/currency/selectors';
 import { getCurrency } from '../../redux/currency/operations';
-import Spinner from 'components/Spinner/Spinner';
+import { Spinner } from 'components/Spinner/Spinner';
 import css from './Currency.module.scss';
 
 export const Currency = () => {

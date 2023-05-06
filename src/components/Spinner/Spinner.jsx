@@ -2,8 +2,7 @@ import React from 'react';
 import { BallTriangle } from 'react-loader-spinner';
 import styles from './Spinner.module.scss';
 
-
-const Spinner = () => (
+export const Spinner = () => (
   <BallTriangle
     type="BallTriangle"
     color="#24CCA7"
@@ -11,8 +10,5 @@ const Spinner = () => (
     height={100}
     width={100}
     visible={true}
-    
   />
 );
-
-export default Spinner;

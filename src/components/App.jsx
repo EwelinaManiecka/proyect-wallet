@@ -14,7 +14,7 @@ import { CurrencyPage } from '../pages/CurrencyPage/CurrencyPage';
 import { fetchCurrentUser } from '../redux/auth/operations';
 import { useAuth } from 'hooks';
 
-import Loader from './Spinner';
+import { Spinner } from './Spinner/Spinner';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader />
+    <Spinner />
   ) : (
     <>
       <Routes>
