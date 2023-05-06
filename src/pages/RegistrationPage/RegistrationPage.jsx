@@ -1,6 +1,6 @@
 import { RegistrationForm } from '../../components/RegistrationForm/RegistrationForm';
 import Media from 'react-media';
-import image from '../../images/RegistrationPage/Desktop/frame-desktop.png';
+import image from '../../images/LoginAndRegistrationPage/Desktop/frame-desktop.png';
 import css from './RegistrationPage.module.scss';
 
 export const RegistrationPage = () => {

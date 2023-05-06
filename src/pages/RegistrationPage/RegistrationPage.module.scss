@@ -3,12 +3,12 @@
 
 @media screen and (min-width: 768px) {
     .container {
-        background-image: url(../../images/RegistrationPage/Tablet/ellipse-tablet-purple.png),
-            url(../../images/RegistrationPage/Tablet/ellipse-tablet-pink.png);
+        background-image: url(../../images/LoginAndRegistrationPage/Tablet/ellipse-tablet-purple.png),
+            url(../../images/LoginAndRegistrationPage/Tablet/ellipse-tablet-pink.png);
 
         background-repeat: no-repeat, no-repeat;
         background-position: bottom left, top right;
-        background-color:var(--bg-registration-color);
+        background-color: var(--bg-registration-color);
     }
 
     .logo {
