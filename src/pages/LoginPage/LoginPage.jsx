@@ -1,7 +1,7 @@
 import Media from 'react-media';
 import { Fragment } from 'react';
-import bgImgX2 from '../../images/RegistrationPage/Desktop/frame-desktop-2x.png';
-import bgImg from '../../images/RegistrationPage/Desktop/frame-desktop.png';
+import financeImage from '../../images/LoginAndRegistrationPage/Desktop/login-image.png';
+import financeImagex2 from '../../images/LoginAndRegistrationPage/Desktop/login-imagex2.png';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import css from './LoginPage.module.scss';
 
@@ -19,13 +19,13 @@ export const LoginPage = () => {
             <Fragment>
               {matches.tablet && (
                 <div className={css.loginPageHeader}>
-                  <img alt="" src={bgImg} className={css.image} />
+                  <img alt="" src={financeImage} className={css.image} />
                   <h2>Finance app</h2>
                 </div>
               )}
               {matches.desktop && (
                 <div className={css.loginPageHeader}>
-                  <img alt="" src={bgImgX2} className={css.image} />
+                  <img alt="" src={financeImagex2} className={css.image} />
                   <h2>Finance app</h2>
                 </div>
               )}
