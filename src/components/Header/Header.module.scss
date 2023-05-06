@@ -45,6 +45,11 @@ img {
 .exitIcon {
   width: 18px;
   fill: var(--txt-inactive-form);
+  margin: 5px;
+
+  &:hover {
+    color: var(--expense-color);
+  }
 }
 
 .exitTxt {
@@ -53,12 +58,11 @@ img {
   font-size: 18px;
   padding-left: 8px;
   line-height: 26.53px;
-}
 
-// .exitIcon:hover,
-// .exitIcon:hover {
-//   fill: var(--expense-color);
-// }
+&:hover{
+  color: var(--expense-color);
+}
+}
 
 .name {
   font-family: circe;

@@ -13,6 +13,7 @@ import {
 import { ModalAddTransaction } from 'components/ModalAddTransaction/ModalAddTransaction';
 import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditTransaction';
 import { ButtonAddTransactions } from '../../components/ButtonAddTransactions/ButtonAddTransactions';
+import { Footer } from 'components/Footer/Footer';
 
 import css from './DashboardPage.module.scss';
 
@@ -28,8 +29,6 @@ export const DashboardPage = () => {
     <>
       <Header />
       <div className={css.container}>
-        {/* <Header /> */}
-
         <div className={css.dashboard}>
           <div>
             <Navigation />
@@ -50,6 +49,7 @@ export const DashboardPage = () => {
           <ModalEditTransaction></ModalEditTransaction>
         )}
       </div>
+      <Footer />
     </>
   );
 };
