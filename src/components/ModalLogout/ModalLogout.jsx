@@ -35,7 +35,7 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
-        handleLogoutClick();
+        handleModalClose();
       }
     };
 
@@ -51,32 +51,34 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
   return (
     <>
       {isOpen && (
-        <div onClick={handleOverlayClick} className={css.modalContainer}>
-          <p className={css.question}>Are you sure, you want to log out?</p>
-          <div className={css.wrapperBtn}>
+        <div onClick={handleOverlayClick} className={css.modalMain}>
+          <div className={css.modalContainer}>
+            <p className={css.question}>Are you sure, you want to log out?</p>
+            <div className={css.wrapperBtn}>
+              <button
+                className={css.modalBtn}
+                type="button"
+                onClick={handleModalClose}
+                title="logout"
+              >
+                No
+              </button>
+              <button
+                className={css.modalBtn}
+                type="button"
+                onClick={handleLogoutClick}
+              >
+                Yes
+              </button>
+            </div>
             <button
-              className={css.modalBtn}
-              type="button"
+              className={css.modalBtn && css.BtnX}
               onClick={handleModalClose}
-              title="logout"
+              title="cancel"
             >
-              No
-            </button>
-            <button
-              className={css.modalBtn}
-              type="button"
-              onClick={handleLogoutClick}
-            >
-              Yes
+              <img className={css.xIcon} src={closeIcon} alt="close"></img>
             </button>
           </div>
-          <button
-            className={css.modalBtn && css.BtnX}
-            onClick={handleModalClose}
-            title="cancel"
-          >
-            <img className={css.xIcon} src={closeIcon} alt="close"></img>
-          </button>
         </div>
       )}
     </>

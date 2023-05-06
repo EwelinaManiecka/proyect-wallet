@@ -26,8 +26,6 @@ export const Header = () => {
   );
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log(user);
-  // const { isLoggedIn } = useAuth();
 
   const handleLogout = () => {
     dispatch(resetState());

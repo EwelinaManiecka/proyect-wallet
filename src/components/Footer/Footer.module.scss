@@ -1,0 +1,19 @@
+@import "../../common/utils/vars.scss";
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(255, 255, 255, 0.4);
+    height: auto;
+}
+
+.text {
+    margin: 30px;
+}
+
+.microphLog {
+    position: sticky;
+    width: 30px;
+    height: auto;
+}
