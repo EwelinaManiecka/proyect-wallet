@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 import css from './ModalLogout.module.scss';
 import { resetState } from 'redux/global/global-action';
 import { toast } from 'react-toastify';
 import closeIcon from '../../images/close_btn.svg';
-import { logOut } from 'redux/auth/operations';
 
 export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
   const dispatch = useDispatch();
