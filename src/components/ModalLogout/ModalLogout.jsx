@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 import css from './ModalLogout.module.scss';
 import { resetState } from 'redux/global/global-action';
 import { toast } from 'react-toastify';
 import closeIcon from '../../images/close_btn.svg';
+import { logOut } from 'redux/auth/operations';
 
 export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
       dispatch(resetState());
       onLogout();
       toast.success('You have been logged out');
+      onClose();
     } catch (error) {
       dispatch(resetState());
       onClose();
@@ -67,13 +69,12 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
                 className={css.modalBtn}
                 type="button"
                 onClick={handleLogoutClick}
-                title="stayInCurrentPage"
               >
                 Yes
               </button>
             </div>
             <button
-              className={`${css.modalBtn} ${css.BtnX}`}
+              className={css.modalBtn && css.xIcon}
               onClick={handleModalClose}
               title="cancel"
             >
