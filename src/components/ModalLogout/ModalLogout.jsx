@@ -21,6 +21,7 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
       dispatch(resetState());
       onLogout();
       toast.success('You have been logged out');
+      onClose();
     } catch (error) {
       dispatch(resetState());
       onClose();
@@ -72,7 +73,7 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
               </button>
             </div>
             <button
-              className={css.modalBtn && css.BtnX}
+              className={css.modalBtn && css.xIcon}
               onClick={handleModalClose}
               title="cancel"
             >
