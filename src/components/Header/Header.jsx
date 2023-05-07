@@ -1,15 +1,13 @@
 import React from 'react';
 import Media from 'react-media';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectName } from 'redux/auth/selectors.js';
-import {
-  closeModalLogout,
-  openModalLogout,
-  resetState,
-} from 'redux/global/global-action';
+// import {
+//   closeModalLogout,
+//   openModalLogout,
+// } from 'redux/global/global-action';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { logOut, fetchCurrentUser } from 'redux/auth/operations';
+import { logOut } from 'redux/auth/operations';
 
 import { ModalLogout } from 'components/ModalLogout/ModalLogout';
 import { useAuth } from 'hooks/useAuth';
@@ -28,15 +26,15 @@ export const Header = () => {
   const { user } = useAuth();
 
   const handleLogout = () => {
-    dispatch(resetState());
+    // dispatch(resetState());
     dispatch(logOut());
     toast.success('You have been logged out');
   };
 
-  const handleCloseModalLogout = () => {
-    dispatch(closeModalLogout());
-    dispatch(fetchCurrentUser());
-  };
+  // const handleCloseModalLogout = () => {
+  //   dispatch(closeModalLogout());
+  //   dispatch(fetchCurrentUser());
+  // };
 
   return (
     <div className={css.main}>
@@ -62,9 +60,9 @@ export const Header = () => {
         </Media>
 
         <button
-          className={css.logoutBtn}
+          className={`${css.logoutBtn} ${css.exitBtn}`}
           type="button"
-          onClick={() => dispatch(openModalLogout())}
+          onClick={handleLogout}
         >
           <img className={css.exitIcon} src={exitIcon} alt="exitIcon"></img>
 
@@ -77,11 +75,7 @@ export const Header = () => {
           </Media>
         </button>
       </div>
-      <ModalLogout
-        isOpen={isModalLogoutOpen}
-        onClose={handleCloseModalLogout}
-        onLogout={handleLogout}
-      />
+      <ModalLogout isOpen={isModalLogoutOpen} onLogout={handleLogout} />
     </div>
   );
 };

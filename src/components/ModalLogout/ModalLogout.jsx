@@ -67,12 +67,13 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
                 className={css.modalBtn}
                 type="button"
                 onClick={handleLogoutClick}
+                title="stayInCurrentPage"
               >
                 Yes
               </button>
             </div>
             <button
-              className={css.modalBtn && css.BtnX}
+              className={`${css.modalBtn} ${css.BtnX}`}
               onClick={handleModalClose}
               title="cancel"
             >
