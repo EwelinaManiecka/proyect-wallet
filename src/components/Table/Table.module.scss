@@ -1,12 +1,7 @@
  @media screen and (min-width: 768px){
-  .table {
-
-    width: 700px;
-  }
  }
 .table {
-
-  width: 715px;
+   width: 715px;
 }
 .headerContainer {
   background-color: white;
@@ -31,7 +26,8 @@
   border-bottom: 1px solid rgba(220, 220, 223, 1);
   padding-left: 20px
 }
-.row {display: grid;
+.row {
+  display: grid;
   grid-template-columns: 3fr 2fr 4fr 6fr 3fr;
   width: 100%;
 }
@@ -56,3 +52,9 @@
 }
 
 .row__edit {cursor: pointer; width: 14px; height: 14px}
+
+@media screen and (min-width: 1280px){
+  .table{
+    margin-top:-65px;
+  }
+}
