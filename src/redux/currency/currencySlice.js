@@ -11,10 +11,7 @@ const currencySlice = createSlice({
       state.error = null;
     },
     [getCurrency.fulfilled](state, { payload }) {
-      const currenciesArray = payload[0].rates.filter(
-        el => el.code === 'EUR' || el.code === 'USD'
-      );
-      state.currencies = currenciesArray;
+      state.currencies = payload[0].rates;
     },
     [getCurrency.rejected](state, payload) {
       state.error = payload;

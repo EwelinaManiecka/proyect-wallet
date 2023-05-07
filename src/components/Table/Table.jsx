@@ -30,7 +30,7 @@ export const Table = () => {
           <li className={css.row__element}>Gift for your wife</li>
           <li className={css.row__element}>1000 $</li>
         </ul>
-        <div className={css.row__icons}>
+      <div className={css.row__icons}>
           <img
             className={css.row__edit}
             src={pen}
