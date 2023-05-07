@@ -5,15 +5,16 @@ footer {
     align-items: center;
     justify-content: center;
     background-color:rgba(255, 255, 255, 0.4);
-    height: auto;
+    height: 10vh;
 }
 
 .text {
     margin: 30px;
+    color: var(--txt-inactive-form)
 }
 
 .microphLog {
     position: sticky;
-    width: 30px;
+    width: 20px;
     height: auto;
 }

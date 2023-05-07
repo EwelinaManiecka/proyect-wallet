@@ -1,11 +1,10 @@
-// @import '../../common/utils/vars.scss';
-// @import '../../common/main.scss';
-
 .main {
   display: flex;
   justify-content: space-between;
+  height: 9vh;
   padding: 20px;
   background-color: var(--dropdown-bg-active-color);
+  height: 80px;
 }
 
 .wallet {
@@ -36,27 +35,42 @@ img {
 .logoutBtn {
   background-color: var(--dropdown-bg-active-color);
   border: none;
-  color: var(--txt-inactive-form);
+  fill: var(--txt-inactive-form);
   cursor: pointer;
   display: flex;
   align-items: center;
+
+  &:hover {
+    fill: var(--expense-color)
+  }
 }
 
 .exitIcon {
   width: 18px;
+  height: 18px;
   fill: var(--txt-inactive-form);
   margin: 5px;
+  transition: fill 0.2s;
 
   &:hover {
-    color: var(--expense-color);
+    fill: var(--expense-color)
   }
 }
 
+.exitBtn {
+  display: flex;
+  align-items: center;
+}
+.hoverable {
+  &:hover {
+    fill: red
+  }
+}
 .exitTxt {
   color: var(--txt-inactive-form);
   font-weight: 400;
   font-size: 18px;
-  padding-left: 8px;
+  padding-left: 10px;
   line-height: 26.53px;
 
 &:hover{

@@ -1,7 +1,5 @@
 .container {
-
   background: var(--bg-main-color);
- 
 }
 .dropdown {
   width: 20px;
@@ -39,64 +37,151 @@
   border-radius: 30px;
 }
 
-.dashboard {
-  padding-top: 60px;
+.statistics {
+  padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
   min-width: 100%;
-  min-height: 940px;
+  min-height: 700px;
   background-color: rgba(208, 202, 202, 0.2);
+  justify-content: center;
+  align-items: center;
 
-}
-@media screen and (min-width: 768px) {
-    .container {
-        display: flex;
-      }
-
-  .dashboard {
-    padding: 20px 40px 20px 40px;
-    height: 944px;
-    background-image: url("../../images/Dashboard/bg-tablet-dashboard.png");
-     background-repeat: no-repeat;
-     background-size: cover;
-   
+  &_section {
+    margin-bottom: 0px;
   }
-}
-@media screen and (min-width: 1280px) {
-
-  .dashboard {
+  &_balance {
     display: flex;
-    justify-content: space-between;
-    padding: 40px 85px 0px 25px;
-    position: relative;
-    min-height: 100%;
-    background-image: url("../../images/Dashboard/bg-desktop-dashboard.png");
-     background-repeat: no-repeat;
-     background-size: cover;
-     &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 0;
-      margin-left: 480px;
-      height: calc(100vh - 5px);
-      border: 1px solid #e7e5f2;
-      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-        1px 0px 0px rgba(255, 255, 255, 0.6);
-     }
-    }
+    justify-content: center;
+    align-items: center;
   }
-@media screen and (min-width: 1280px){
-.dashboard__chart{
-    margin-top: 32px;
-    margin-right: 343px;
+  &_currency {
+    display: none;
   }
-  .chart__title{
+  &_chart {
+    margin-top: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &_title {
     font-family: 'Poppins';
     margin-bottom: 20px;
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
+  }
+  &_donughnut {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dashboard {
+    padding: 20px 40px 20px 40px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statistics {
+    padding: 32px;
+    align-items: normal;
+    height: 944px;
+    background-image: url('../../images/Dashboard/bg-tablet-dashboard.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    &_balance {
+      margin-top: 10px;
+    }
+
+    &_section {
+      display: flex;
+      margin-right: 30px;
+    }
+
+    &_currency {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &_table {
+      margin-top: -76px;
+    }
+    &_chart {
+      margin-top: 3px;
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+    }
+    &_donughnut{
+      margin-left: 10px;
+    }
+  }
+}
+@media screen and (min-width: 1280px) {
+  .statistics {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 85px 0px 25px;
+    position: relative;
+    min-height: 100%;
+    background-image: url('../../images/Dashboard/bg-desktop-dashboard.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      margin-left: 635px;
+      height: 100%;
+      border: 1px solid #e7e5f2;
+      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+        1px 0px 0px rgba(255, 255, 255, 0.6);
+    }
+    &_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin-left: 180px;
+    }
+    &_section {
+      flex-direction: column;
+      padding-bottom: 350px;
+    }
+    &_balance {
+      justify-content: flex-start;
+    }
+    &_currency {
+      margin-left: -30px;
+    }
+    &_chart {
+      display: flex;
+      margin-left: 50px;
+      margin-bottom: 565px;
+    }
+    &_title {
+      font-family: 'Poppins';
+      margin-bottom: 20px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 45px;
+    }
   }
 }

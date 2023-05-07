@@ -1,0 +1,39 @@
+.mobile{
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mobile_list{
+  list-style: none;
+  border-radius: 10px;
+  border-left: 5px solid #ff6596;
+  background-color: #fff;
+  padding: 0;
+  width: 280px;
+}
+.mobile_listItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    min-height: 47px;
+    &:not(:last-child) {
+      border-bottom: 1px solid #dcdcdf;
+    }
+  }
+  .mobile_listCategory {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+
+    text-align: right;
+  }
+  .mobile_listData{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: right;
+  }
