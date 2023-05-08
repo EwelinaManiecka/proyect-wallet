@@ -5,6 +5,7 @@ const initialState = {
   modalType: null,
   isModalAddTransactionOpen: false,
   isModalEditTransactionOpen: false,
+  transactionToEdit: [],
 };
 
 export const resetState = createAction('global/resetState');
@@ -28,9 +29,12 @@ const globalSlice = createSlice({
     toggleModalEditTransaction(state) {
       state.isModalEditTransactionOpen = !state.isModalEditTransactionOpen;
     },
+    setTransactionToEdit(state, action) {
+      state.transactionToEdit = action.payload
+    }
   },
 });
 
-export const { openModalLogout, closeModalLogout, toggleModalAddTransaction, toggleModalEditTransaction } =
+export const { openModalLogout, closeModalLogout, toggleModalAddTransaction, toggleModalEditTransaction, setTransactionToEdit } =
   globalSlice.actions;
 export const globalReducer = globalSlice.reducer;

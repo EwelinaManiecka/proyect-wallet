@@ -1,6 +1,7 @@
 import { toggleModalAddTransaction } from 'redux/global/global-action';
-import { useDispatch } from 'react-redux';
-
+import { addTransaction } from 'redux/transactions/operations';
+import { selectCategories } from 'redux/transactions/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './ModalAddTransaction.module.scss';
 import { Button } from 'common/Button/Button';
 import closeBtn from './../../images/close_btn.svg';
@@ -8,6 +9,8 @@ import { useState } from 'react';
 
 export const ModalAddTransaction = () => {
   const [checked, setChecked] = useState(false);
+  const [selected, setSelected] = useState('');
+  const categories = useSelector(selectCategories);
 
   const dispatch = useDispatch();
 
@@ -15,15 +18,39 @@ export const ModalAddTransaction = () => {
     if (
       event.target.nodeName === 'DIV' ||
       event.target.nodeName === 'IMG' ||
-      event.target.type === 'button'
+      event.target.type === 'button' 
     ) {
       dispatch(toggleModalAddTransaction());
     }
   };
 
+  const setCategory = event => {
+    const category = event.target.value;
+    setSelected(category);
+  };
+
+  const submitTransaction = event => {
+    event.preventDefault();
+
+    const amount = event.target.number.value;
+    const date = event.target.date.value;
+    const comment = event.target.comment.value;
+    const type = checked ? 'EXPENSE' : 'INCOME';
+
+    const newTransaction = {
+      transactionDate: date,
+      type: type,
+      categoryId: checked ? selected : '063f1132-ba5d-42b4-951d-44011ca46262',
+      comment: comment,
+      amount: checked ? amount * -1 : amount
+    };
+    dispatch(addTransaction(newTransaction));
+    dispatch(toggleModalAddTransaction());
+  };
+
   return (
     <div className={css.overlay} onClick={event => toggleModal(event)}>
-      <form className={css.modal}>
+      <form className={css.modal} onSubmit={submitTransaction}>
         <h1 className={css.modal__title}>Add transaction</h1>
         <div className={css.switcherContainer}>
           <p className={!checked && css.green}>Income</p>
@@ -32,37 +59,42 @@ export const ModalAddTransaction = () => {
               type="checkbox"
               checked={checked}
               onChange={() => setChecked(!checked)}
-              defaultChecked
             ></input>
             <span className={!checked ? css.slider : css.sliderred}></span>
           </label>
           <p className={checked && css.red}>Expense</p>
         </div>
         {checked && (
-          <select className={css.categories}>
-            <option className={css.categories__title} value="select">Select a category</option>
-            <option value="Main">Main expenses</option>
-            <option value="Products">Products</option>
-            <option value="Self">Self care</option>
-            <option value="Child">Child care</option>
-            <option value="Household">Household products</option>
-            <option value="Child">Education</option>
-            <option value="Other">Other expenses</option>
-            <option value="Entertainment">Entertainment</option>
+          <select className={css.categories} onChange={setCategory}>
+            <option value="Select option">Select a category</option>
+            {categories &&
+              categories.map(category => {
+                return (
+                  <option
+                    id={category.id}
+                    key={category.id}
+                    value={category.id}
+                  >
+                    {category.name}
+                  </option>
+                );
+              })}
           </select>
         )}
         <div className={css.inputcontainer}>
           <input
             type="number"
+            name="number"
             className={css.number}
             placeholder="0.00"
           ></input>
-          <input type="date" className={css.date}></input>
+          <input type="date" name="date" className={css.date}></input>
         </div>
         <input
           type="text"
           className={css.comment}
-          placeholder="Comment"
+          name="comment"
+          placeholder="comment"
         ></input>
         <div className={css.buttonsWrapper}>
           <Button

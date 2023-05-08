@@ -12,9 +12,10 @@ import { DashboardPage } from '../pages/DashboardPage/DashboardPage';
 import { StatisticsPage } from '../pages/StatisticsPage/StatisticsPage';
 import { CurrencyPage } from '../pages/CurrencyPage/CurrencyPage';
 import { fetchCurrentUser } from '../redux/auth/operations';
+import { getTransactionCategories, getAllTransactions } from 'redux/transactions/operations';
 import { useAuth } from 'hooks';
 
-import Loader from './Spinner';
+import { Spinner } from './Spinner/Spinner';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,13 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
+    dispatch(getTransactionCategories());
+    dispatch(getAllTransactions())
   }, [dispatch]);
+  
 
   return isRefreshing ? (
-    <Loader />
+    <Spinner />
   ) : (
     <>
       <Routes>
@@ -50,7 +54,7 @@ export const App = () => {
           }
         />
         <Route
-          path="/statistics"
+          path="/diagram"
           element={
             <PrivateRoute redirectTo="/login" component={<StatisticsPage />} />
           }

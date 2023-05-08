@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+}
+
+.label {
+    background-color: var(--btn-txt-main-color);
+    display: flex;
+    width: 100%;
+    height: 58px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--txt-main-color);
+    border-radius: 30px;
+}
+
+.list {
+    width: 100%;
+}
+
+
+.summary {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-family: 'Circe';
+    color: var(--txt-main-color);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+    &__expense {
+        color: var(--expense-color);
+    }
+
+    ;
+
+    &__income {
+        color: var(--income-color);
+    }
+}
