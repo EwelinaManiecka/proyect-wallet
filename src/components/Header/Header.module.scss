@@ -30,18 +30,20 @@ img {
   justify-content: space-between;
   align-items: center;
   font-family: var(--main-font);
+  cursor: pointer;
+  background-color: var(--dropdown-bg-active-color);
 }
 
 .logoutBtn {
   background-color: var(--dropdown-bg-active-color);
   border: none;
-  fill: var(--txt-inactive-form);
   cursor: pointer;
   display: flex;
   align-items: center;
 
   &:hover {
-    fill: var(--expense-color)
+    fill: red;
+    color: red;
   }
 }
 
@@ -49,7 +51,6 @@ img {
   width: 18px;
   height: 18px;
   fill: var(--txt-inactive-form);
-  margin: 5px;
   transition: fill 0.2s;
 
   &:hover {
@@ -61,11 +62,7 @@ img {
   display: flex;
   align-items: center;
 }
-.hoverable {
-  &:hover {
-    fill: red
-  }
-}
+
 .exitTxt {
   color: var(--txt-inactive-form);
   font-weight: 400;

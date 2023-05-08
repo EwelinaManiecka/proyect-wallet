@@ -1,6 +1,6 @@
 import React from 'react';
 
-import sermajk2 from '../../images/sermajk2.jpg';
+import sermajk from '../../images/sermajk.jpg';
 import css from './Footer.module.scss';
 
 export const Footer = () => {
@@ -9,7 +9,7 @@ export const Footer = () => {
       <p className={css.text}>&copy; 2023 SER.MAJK Group</p>
       <img
         className={css.microphLog}
-        src={sermajk2}
+        src={sermajk}
         alt="ser.majk icon with color"
       />
     </footer>

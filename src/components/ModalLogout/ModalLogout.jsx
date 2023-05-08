@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import css from './ModalLogout.module.scss';
 import { resetState } from 'redux/global/global-action';
 import { toast } from 'react-toastify';
-import closeIcon from '../../images/close_btn.svg';
 
 export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
   const dispatch = useDispatch();
@@ -76,9 +75,7 @@ export const ModalLogout = ({ isOpen, onClose, onLogout }) => {
               className={css.modalBtn && css.xIcon}
               onClick={handleModalClose}
               title="cancel"
-            >
-              <img className={css.xIcon} src={closeIcon} alt="close"></img>
-            </button>
+            ></button>
           </div>
         </div>
       )}
