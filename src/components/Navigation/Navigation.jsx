@@ -15,7 +15,7 @@ export function Navigation({ onClickCurrency }) {
         </div>
         <div className={css.navigation__text}>Home</div>
       </NavLink>
-      <NavLink to="/statistics" className={css.navigation__item}>
+      <NavLink to="/diagram" className={css.navigation__item}>
         <div className={css.navigation__icon}>
           <TimelineIcon fontSize="inherit" />
         </div>
