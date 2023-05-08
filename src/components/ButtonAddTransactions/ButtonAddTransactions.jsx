@@ -1,4 +1,5 @@
 import { toggleModalAddTransaction } from 'redux/global/global-action';
+import { getTransactionCategories } from 'redux/transactions/operations';
 import { useDispatch } from 'react-redux';
 
 import css from './ButtonAddTransactions.module.scss';
@@ -9,6 +10,8 @@ export const ButtonAddTransactions = () => {
 
   const toggleModal = () => {
     dispatch(toggleModalAddTransaction());
+    dispatch(getTransactionCategories())
+
   };
 
   return (
