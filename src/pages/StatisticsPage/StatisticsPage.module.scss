@@ -23,16 +23,19 @@
 .statistics {
   display: flex;
   padding-top: 15px;
-  padding-left: 20px;
+  // padding-left: 20px;
   padding-right: 20px;
   min-width: 100%;
-  min-height: 700px;
+  min-height: 570px;
   background-color: rgba(208, 202, 202, 0.2);
   justify-content: center;
   align-items: center;
 
   &_section {
     margin-bottom: 0px;
+    display: flex;
+   align-items:center;
+   justify-content: center;
   }
 
   &_balance {
@@ -125,7 +128,7 @@
 
 
     &_chart {
-      margin-top: 3px;
+      padding-top: 30px;
       display: flex;
       width: 100%;
       justify-content: left;
@@ -205,7 +208,7 @@
     }
 
     &_currency {
-      margin-left: -30px;
+      margin-left: -50px;
     }
 
     &_field {
