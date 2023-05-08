@@ -4,12 +4,12 @@ import { transactionSummary  } from './operations';
 const initialState = {
   totalBalance: null,
   statistics: {
-    categoriesSummary: [
-      {
+    categoriesSummary: 
+      [{
         name: '',
         total: '',
-      }
-    ],
+      }]
+    ,
     expenses: null,
     income: null,
   },

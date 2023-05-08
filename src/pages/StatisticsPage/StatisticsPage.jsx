@@ -10,9 +10,11 @@ import { Footer } from 'components/Footer/Footer';
 import { transactionSummary } from '../../redux/statistiscs/operations';
 import {  selectStatistics, selectCategoriesSummary } from '../../redux/statistiscs/selectors';
 import { Table } from '../../components/DiagramTab/DiagramTab';
-import arrowDown from '../../images/arrow_down.svg';
 import Select, { components } from 'react-select';
+import arrowDown from '../../images/arrow_down.svg';
 import css from './StatisticsPage.module.scss';
+import line from '../../images/line.svg';
+import { hover } from "@testing-library/user-event/dist/hover";
 
 const CaretDownIcon = () => {
   return <img className={css.dropdown} alt="Logo" src={arrowDown} />
@@ -27,32 +29,62 @@ const DropdownIndicator = props => {
 };
 
 export const StatisticsPage = () => {
+  const colors = [
+  '#FED057', // Main expenses
+  '#FFD8D0', // Products
+  '#FD9498', // Car
+  '#C5BAFF', // Self care
+  '#6E78E8', // Child care
+  '#4A56E2', // Household products
+  '#81E1FF', // Education
+  '#24CCA7', // Leisure
+  '#00AD84', // Other expenses
+  '#DC6FF2', // Entertainment
+    ];
   const timeZoneRelatedDate = new Date();
     const actualMonth = timeZoneRelatedDate.toLocaleDateString(
         'pl-PL', { month: '2-digit' });
     const actualYear = timeZoneRelatedDate.toLocaleDateString(
         'pl-PL', { year: 'numeric' });
 
-    const [month, setMonth] = useState(actualMonth);
-    const [year, setYear] = useState(actualYear);
-
     const dispatch = useDispatch();
 
     const dataStatistisc = useSelector(selectStatistics);
     const dataCategories = useSelector(selectCategoriesSummary);
     
+    const [month, setMonth] = useState(actualMonth);
+    const [year, setYear] = useState(actualYear);
+    
  useEffect(() => {
      dispatch(transactionSummary({ year, month }),
      )
  }, [year, month, dispatch]);
-    
-    const name  = dataCategories.map(e => e.name);
-    const total = dataCategories.map(e => e.total);
-    const expense = dataStatistisc.expenseSummary * -1;
-    const income  = dataStatistisc.incomeSummary* -1;
-    
-    const data = { name: name, total: total };
- 
+  
+  const categories  = dataCategories.map(e => e.name);
+  const expense = dataStatistisc.expenseSummary * -1;
+  const income = dataStatistisc.incomeSummary * -1;
+      
+    const items = dataCategories.map((e, index) =>
+      <li className={css.table} key={index}>
+        <div className={css.table__item}>
+          <div style={{
+            backgroundColor: colors[index],
+            display: 'flex',
+            width: '24px',
+            height: '24px',
+            marginRight: '16px',
+            marginLeft: '20px',
+            borderRadius: '2px',
+          }}></div>
+          <div className={css.table__value}>
+              <div className={css.table__name}>{e.name}</div>
+            <div className={css.table__total}>{e.total * -1}</div>
+        </div>
+      </div>
+     <img className={css.table__line} alt="" src={line} />
+    </li>
+  );
+  
     const monthValue = [
         { value: '01', label: 'January' },
         { value: '02', label: 'February' },
@@ -82,43 +114,58 @@ export const StatisticsPage = () => {
         { value: '2025', label: '2025' },
         { value: '2026', label: '2026' }
     ]
-    const styleSelect = {
-        control: (baseStyles, state) => ({
-            ...baseStyles,
-            marginBottom: '20px',
-            boxShadow: 'none',
-            width: '280px',
-            height: '50px',
-            paddingTop: '3px',
-            paddingLeft: '20px',
-            border: '1px solid #000',
-            borderRadius: '30px',
-            outline: 'none',
-            "&:hover": {
-                borderColor: '#000',
-                cursor: 'pointer',
-                },
-        }),
-        menu: (baseStyles, state) => ({
-            ...baseStyles,
-            color: '#000',
-            width: '280px',
-            cursor: 'pointer',
-        }),
-        menuList: (baseStyles, state) => ({
-            ...baseStyles,
-            color: '#000',
-            width: '280px',
-            height: '157px',
-            cursor: 'pointer',        
-            background: 'rgba(255, 255, 255, 0.7)',
-            boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
-            backdropFilter: 'blur(25px)',
-            borderRadius: '20px',
-            overflowY: 'scroll',
-            
-            }),
-        valueContainer: (baseStyles, state) => ({
+  const styleSelect = {
+    control: (baseStyles, state) => ({
+      ...baseStyles,
+     
+      boxShadow: 'none',
+      minWidth: '110px',
+      height: '50px',
+      paddingTop: '3px',
+      paddingLeft: '20px',
+      border: '1px solid #000',
+      borderRadius: '30px',
+      outline: 'none',
+      "&:hover": {
+        borderColor: '#000',
+        cursor: 'pointer',
+      },
+      '@media screen and (min-width: 768px)': {
+        width: '160px',
+      },
+      '@media screen and (min-width: 1280px)': {
+        width: '180px',
+      },
+    }),
+    menu: (baseStyles, state) => ({
+      ...baseStyles,
+      color: '#000',
+      minWidth: '110px',
+      cursor: 'pointer',
+      borderRadius: '20px',
+      backdropFilter: 'blur(25px)',
+      "&:hover": {
+          
+        cursor: 'pointer',
+      },
+    }),
+    menuList: (baseStyles, state) => ({
+      ...baseStyles,
+      color: '#000',
+      minWidth: '110px',
+      height: '157px',
+      background: 'rgba(255, 255, 255, 0.7)',
+      boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
+      backdropFilter: 'blur(25px)',
+      borderRadius: '20px',
+      scroll: ' none',
+      overflowY: 'scroll',
+      "&:hover": {
+          
+        cursor: 'pointer',
+      },
+    }),
+      valueContainer: (baseStyles, state) => ({
             ...baseStyles,
             color: '#000',
             border: 'none',
@@ -141,23 +188,10 @@ export const StatisticsPage = () => {
         })
     }
 
-    const colors = [
-  '#FED057', // Main expenses
-  '#FFD8D0', // Products
-  '#FD9498', // Car
-  '#C5BAFF', // Self care
-  '#6E78E8', // Child care
-  '#4A56E2', // Household products
-  '#81E1FF', // Education
-  '#24CCA7', // Leisure
-  '#00AD84', // Other expenses
-  '#DC6FF2', // Entertainment
-    ];
-    
   return (
     <>
       <Header />
-      <div className={css.container}>
+        <div className={css.container}>
         <div className={css.statistics}>
           <div className={css.statistics_container}>
             <div className={css.statistics_section}>
@@ -177,32 +211,21 @@ export const StatisticsPage = () => {
               <div className={css.statistics_chart}>
                 <h2 className={css.statistics_title}>Statistics</h2>
                 <div className={css.statistics_donughnut}>
-                  <ChartDoughnut />
+                  <ChartDoughnut categories={categories} colors={colors} expense={expense} />
                 </div>
+              </div>
+              <div className={css.statistics_table}>
+                  <div className={css.statistics_select}>
+                    <Select components={{ DropdownIndicator }} styles={styleSelect} placeholder={actualMonth} defaultValue={actualMonth} onChange={e => setMonth(e.value)} options={monthValue} />
+                    <Select components={{ DropdownIndicator }} styles={styleSelect} placeholder={actualYear} defaultValue={actualYear} onChange={e => setYear(e.value)} options={yearValue} />
+                  </div>
+                <Table data={items} expense={expense} income={income} colors={colors} /> 
               </div>
             </div>
           </div>
+          </div>
         </div>
-
-        <div className={css.dashboard__chart}>
-          <div className={css.container}>  
-            <div>
-            <span className={css.title}>Statistics</span>
-            <ChartDoughnut categories={name} colors={colors} expense={expense} />
-            </div>
-            <div>
-              <Select components={{ DropdownIndicator }} styles={styleSelect} placeholder={actualMonth} defaultValue={actualMonth} onChange={e => setMonth(e.value)} options={monthValue} />
-            <Select components={{ DropdownIndicator }} styles={styleSelect} placeholder={actualYear} defaultValue={actualYear} onChange={e => setYear(e.value)} options={yearValue} />
-            <div className={css.label}>
-                <span>Category</span>
-                <span>Sum</span>
-            </div>
-            <Table data={data} expense={expense} income={income} colors={colors}/> 
-            </div>
-            </div>
-        </div>
-        <Footer />
-      </div>
+      <Footer />
     </>
   );
 };
