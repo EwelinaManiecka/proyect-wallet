@@ -6,14 +6,13 @@ const authInstance = axios.create({
   timeout: '8000',
   mode: 'cors',
 });
-// axios.defaults.headers.Access-Control-Allow-Origin = '*'
 
 const setAuthToken = token => {
-  axios.defaults.headers.common.Authorization = `${token}`;
+  authInstance.defaults.headers.common.Authorization = `${token}`;
 };
 
 const clearAuthToken = () => {
-  axios.defaults.headers.common.Authorization = '';
+  authInstance.defaults.headers.common.Authorization = '';
 };
 
 export const register = createAsyncThunk(
@@ -35,7 +34,6 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await authInstance.post('/auth/sign-in', credentials);
       setAuthToken(data.token);
-      console.log(axios.defaults.headers.common.Authorization);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -64,7 +62,6 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       setAuthToken(persistedToken);
       const { data } = await authInstance.get('/users/current');
-      // console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
