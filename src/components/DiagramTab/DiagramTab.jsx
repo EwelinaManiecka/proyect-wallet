@@ -3,31 +3,35 @@ import line from '../../images/line.svg';
 
 export const Table = ({data, expense, income, colors}) => {
 
-    const listItems = data.name.map((element, index) =>
-    <li className={css.item} key={index}>
-      <div className={css.container}>
-        <div style={{
-          backgroundColor: colors[index],
-            width: '24px',
-            height: '24px',
-            marginRight: '16px',
-            marginLeft: '20px',
-          borderRadius: '2px',
-          }}></div>
-        <div>
-          {element}
-        </div>
+  //   const listItems = data.name.map((element, index) =>
+  //   <li className={css.item} key={index}>
+  //     <div className={css.container}>
+  //       <div style={{
+  //         backgroundColor: colors[index],
+  //           width: '24px',
+  //           height: '24px',
+  //           marginRight: '16px',
+  //           marginLeft: '20px',
+  //         borderRadius: '2px',
+  //         }}></div>
+  //       <div>
+  //         {element}
+  //       </div>
         
-      </div>
-      <img className={css.line} alt="" src={line} />
-    </li>
-  );
+  //     </div>
+  //     <img className={css.line} alt="" src={line} />
+  //   </li>
+  // );
 
 return (
-    <>
+  <>
+    <div className={css.label}>
+      <span>Category</span>
+          <span>Sum</span>
+        </div>
       <ul className={css.list}>
-       {listItems}
-    </ul>
+      {data}
+      </ul>
      <div className={css.summary}>
         Expenses:
                 {expense !== 0 ? (

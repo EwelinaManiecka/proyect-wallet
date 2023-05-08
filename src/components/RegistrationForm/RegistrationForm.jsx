@@ -186,7 +186,7 @@ export const RegistrationForm = () => {
           </div>
           <div className={css.container__btn}>
             <Button
-                classNameBtn={btn.green}
+                classNameBtn={btn.white}
                 type={'submit'}
                 children={'register'}
               />
