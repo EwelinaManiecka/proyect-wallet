@@ -28,17 +28,30 @@
 }
 .row {
   display: grid;
-  grid-template-columns: 3fr 2fr 4fr 6fr 3fr;
+  grid-template-columns: 4fr 2fr 6fr 6fr 3fr;
   width: 100%;
 }
-
 .row__element {
   list-style: none;
   padding-top: 16px;
   padding-right: 10px;
-  padding-bottom: 16px;
+  padding-bottom: 16px;}
 
+.row__red {
+  list-style: none;
+  padding-top: 16px;
+  padding-right: 10px;
+  padding-bottom: 16px;
+  color: rgba(255, 101, 150, 1);
 }
+.row__green {
+  list-style: none;
+  padding-top: 16px;
+  padding-right: 10px;
+  padding-bottom: 16px;
+  color: rgba(36, 204, 167, 1)
+}
+
 
 .row__icons {margin-left: auto; display: flex; align-items: center}
 .row__delete {
