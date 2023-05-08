@@ -40,7 +40,9 @@ export const ModalAddTransaction = () => {
         </div>
         {checked && (
           <select className={css.categories}>
-            <option className={css.categories__title} value="select">Select a category</option>
+            <option className={css.categories__title} value="select">
+              Select a category
+            </option>
             <option value="Main">Main expenses</option>
             <option value="Products">Products</option>
             <option value="Self">Self care</option>

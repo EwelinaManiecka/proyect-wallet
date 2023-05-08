@@ -50,7 +50,7 @@ export const App = () => {
           }
         />
         <Route
-          path="/statistics"
+          path="/diagram"
           element={
             <PrivateRoute redirectTo="/login" component={<StatisticsPage />} />
           }
