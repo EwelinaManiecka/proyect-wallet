@@ -14,7 +14,6 @@ import Select, { components } from 'react-select';
 import arrowDown from '../../images/arrow_down.svg';
 import css from './StatisticsPage.module.scss';
 import line from '../../images/line.svg';
-import { hover } from "@testing-library/user-event/dist/hover";
 
 const CaretDownIcon = () => {
   return <img className={css.dropdown} alt="Logo" src={arrowDown} />
