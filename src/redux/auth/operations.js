@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://wallet-app.herokuapp.com/api';
+const authInstance = axios.create({
+  baseURL: 'https://wallet-app.herokuapp.com/api',
+  timeout: '8000',
+  mode: 'cors',
+});
 // axios.defaults.headers.Access-Control-Allow-Origin = '*'
 
 const setAuthToken = token => {
@@ -16,7 +20,7 @@ export const register = createAsyncThunk(
   'auth/sign-up',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/sign-up', credentials);
+      const { data } = await authInstance.post('/auth/sign-up', credentials);
       setAuthToken(data.token);
       return data;
     } catch (error) {
@@ -29,7 +33,7 @@ export const logIn = createAsyncThunk(
   'auth/sign-in',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/sign-in', credentials);
+      const { data } = await authInstance.post('/auth/sign-in', credentials);
       setAuthToken(data.token);
       console.log(axios.defaults.headers.common.Authorization);
       return data;
@@ -41,7 +45,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('sign-out', async (_, thunkAPI) => {
   try {
-    await axios.delete('/auth/sign-out');
+    await authInstance.delete('/auth/sign-out');
     clearAuthToken();
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -59,7 +63,7 @@ export const fetchCurrentUser = createAsyncThunk(
 
     try {
       setAuthToken(persistedToken);
-      const { data } = await axios.get('/users/current');
+      const { data } = await authInstance.get('/users/current');
       // console.log(data);
       return data;
     } catch (error) {
