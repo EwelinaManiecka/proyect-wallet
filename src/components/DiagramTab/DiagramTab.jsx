@@ -1,5 +1,4 @@
 import css from './DiagramTab.module.scss';
-import line from '../../images/line.svg';
 
 export const Table = ({data, expense, income, colors}) => {
 
