@@ -20,13 +20,13 @@ export const LoginPage = () => {
               {matches.tablet && (
                 <div className={css.loginPageHeader}>
                   <img alt="" src={financeImage} className={css.image} />
-                  <h2>Finance app</h2>
+                  <h2>Finance App</h2>
                 </div>
               )}
               {matches.desktop && (
                 <div className={css.loginPageHeader}>
                   <img alt="" src={financeImagex2} className={css.image} />
-                  <h2>Finance app</h2>
+                  <h2>Finance App</h2>
                 </div>
               )}
             </Fragment>
