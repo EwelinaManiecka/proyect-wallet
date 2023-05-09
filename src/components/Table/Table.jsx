@@ -29,7 +29,7 @@ export const Table = () => {
 
   const findCategory = option => {
     const categoryToFind = categories.find(
-      category => category.id === option.categoryId
+      category => category.name === option.categoryId
     );
     return categoryToFind.name;
   };
