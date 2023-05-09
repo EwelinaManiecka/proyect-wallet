@@ -142,6 +142,7 @@
         margin-bottom: 20px;
         color: var(--element-inactive-color);
         transition: ease-in-out all 350ms;
+        text-transform: uppercase;
 
         @media screen and (min-width: 768px) {
             width: 300px;
@@ -164,6 +165,7 @@
         border-radius: 20px;
         color: var(--element-inactive-color);
         transition: ease-in-out all 350ms;
+        text-transform: uppercase;
 
         @media screen and (min-width: 768px) {
             width: 300px;
