@@ -248,7 +248,8 @@ export const StatisticsPage = () => {
               </div>
             </div>
           </div>
-
+        </div>
+      </div>
       <Footer />
     </>
   );
