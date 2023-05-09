@@ -18,7 +18,7 @@ export const ModalAddTransaction = () => {
     if (
       event.target.nodeName === 'DIV' ||
       event.target.nodeName === 'IMG' ||
-      event.target.type === 'button' 
+      event.target.type === 'button'
     ) {
       dispatch(toggleModalAddTransaction());
     }
@@ -42,8 +42,9 @@ export const ModalAddTransaction = () => {
       type: type,
       categoryId: checked ? selected : '063f1132-ba5d-42b4-951d-44011ca46262',
       comment: comment,
-      amount: checked ? amount * -1 : amount
+      amount: checked ? Number(amount * -1) : Number(amount),
     };
+    console.log(newTransaction);
     dispatch(addTransaction(newTransaction));
     dispatch(toggleModalAddTransaction());
   };

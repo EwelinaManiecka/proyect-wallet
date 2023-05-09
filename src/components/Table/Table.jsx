@@ -15,17 +15,17 @@ const uniqid = require('uniqid');
 
 export const Table = () => {
   const dispatch = useDispatch();
-  const allTransactions = useSelector(selectTransactions);
-  const categories = useSelector(selectCategories);
+  const { allTransactions } = useSelector(selectTransactions);
+  const { categories } = useSelector(selectCategories);
 
   const toggleModal = data => {
     dispatch(setTransactionToEdit(data));
     dispatch(toggleModalEditTransaction());
   };
 
-  const removeTransaction = (id) => {
-    dispatch(deleteTransaction(id))
-  }
+  const removeTransaction = id => {
+    dispatch(deleteTransaction(id));
+  };
 
   const findCategory = option => {
     const categoryToFind = categories.find(
@@ -47,6 +47,7 @@ export const Table = () => {
       </div>
 
       {allTransactions &&
+        categories &&
         categories.length !== 0 &&
         allTransactions.map(transaction => {
           return (
@@ -86,7 +87,7 @@ export const Table = () => {
                 ></img>
                 <button
                   className={css.row__delete}
-                  onClick={() => removeTransaction(transaction.id)}
+                  onClick={() => removeTransaction(transaction._id)}
                 >
                   Delete
                 </button>

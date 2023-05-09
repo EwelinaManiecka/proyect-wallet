@@ -50,7 +50,7 @@ export const transactionsSlice = createSlice({
       state.isLoading = false;
       state.transactions = action.payload;
       state.error = null;
-      state.balance = action.payload[action.payload.length - 1].balanceAfter;
+      state.balance = 0;
     },
     [getAllTransactions.rejected]: (state, action) => {
       state.isLoading = false;
@@ -75,7 +75,7 @@ export const transactionsSlice = createSlice({
     },
     [updateTransaction.fulfilled]: (state, action) => {
       state.isLoading = false;
-      const index = state.transactions.findIndex(
+      const index = state.transactions.allTransactions.findIndex(
         transaction => transaction.id === action.payload.id
       );
       state.transactions[index] = action.payload;
