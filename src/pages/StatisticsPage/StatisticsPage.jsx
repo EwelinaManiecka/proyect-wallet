@@ -190,8 +190,6 @@ export const StatisticsPage = () => {
   return (
     <>
       <Header />
-        <div className={css.container}>
-        <div className={css.statistics}>
           <div className={css.statistics_container}>
             <div className={css.statistics_section}>
               <div className={css.statistics_navigation}>
@@ -222,8 +220,8 @@ export const StatisticsPage = () => {
               </div>
             </div>
           </div>
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       <Footer />
     </>
   );
