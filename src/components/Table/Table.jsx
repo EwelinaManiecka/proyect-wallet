@@ -15,8 +15,8 @@ const uniqid = require('uniqid');
 
 export const Table = () => {
   const dispatch = useDispatch();
-  const { allTransactions } = useSelector(selectTransactions);
-  const { categories } = useSelector(selectCategories);
+  const allTransactions = useSelector(selectTransactions);
+  const categories = useSelector(selectCategories);
 
   const toggleModal = data => {
     dispatch(setTransactionToEdit(data));

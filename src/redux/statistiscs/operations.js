@@ -12,7 +12,7 @@ export const transactionSummary = createAsyncThunk(
   async ({ year, month }, thunkAPI) => {
     try {
       const response = await transactionInstance.get(
-        `/api/transactions-summary?month=${month}&year=${year}`
+        `/transactions-summary?year=${year}&month=${month}`
       );
       return response.data;
     } catch (error) {
