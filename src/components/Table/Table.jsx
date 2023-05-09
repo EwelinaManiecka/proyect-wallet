@@ -29,8 +29,10 @@ export const Table = () => {
 
   const findCategory = option => {
     const categoryToFind = categories.find(
-      category => category.name === option.categoryId
+      category => category.id === option.categoryId
     );
+    console.log(option, 'too jest option');
+    console.log(categoryToFind, 'cat to find');
     return categoryToFind.name;
   };
 
