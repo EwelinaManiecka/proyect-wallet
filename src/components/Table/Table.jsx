@@ -53,7 +53,7 @@ export const Table = () => {
         categories.length !== 0 &&
         allTransactions.map(transaction => {
           return (
-            <div className={css.contentContainer}>
+            <div className={css.contentContainer} key={transaction._id}>
               <ul className={css.row}>
                 <li className={css.row__element} key={uniqid()}>
                   {transaction.transactionDate}
