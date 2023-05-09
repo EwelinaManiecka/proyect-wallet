@@ -50,3 +50,25 @@
         color: var(--income-color);
     }
 }
+@media screen and (min-width: 767px){
+   .label{
+    width: 336px;
+   } 
+   .list{
+    width:336px
+   }
+   .summary{
+    width:336px;
+   }
+}
+@media screen and (min-width: 1280px){
+    .label{
+        width:395px;
+    }
+    .list{
+    width:395px;
+   }
+   .summary{
+    width:395px;
+   }
+}
