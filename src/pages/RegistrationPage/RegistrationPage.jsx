@@ -35,7 +35,6 @@ export const RegistrationPage = () => {
         <div className={css.form}>
           <RegistrationForm />
         </div>
-        <div></div>
       </div>
     </>
   );
