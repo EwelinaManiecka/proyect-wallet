@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { addTransactionInstance } from 'redux/transactions/operations';
+import { transactionInstance } from 'redux/statistiscs/operations';
 
 const authInstance = axios.create({
   baseURL: 'https://wallet-app.herokuapp.com/api',
@@ -10,6 +11,7 @@ const authInstance = axios.create({
 
 const setAuthToken = token => {
   authInstance.defaults.headers.common.Authorization = `${token}`;
+  transactionInstance.defaults.headers.common.Authorization = `${token}`;
   addTransactionInstance.defaults.headers.common.Authorization = `${token}`;
 };
 
