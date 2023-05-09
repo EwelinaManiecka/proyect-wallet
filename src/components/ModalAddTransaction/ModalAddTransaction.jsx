@@ -26,7 +26,9 @@ export const ModalAddTransaction = () => {
 
   const setCategory = event => {
     const category = event.target.value;
-    setSelected(category);
+    if (category === '063f1132-ba5d-42b4-951d-44011ca46262') {
+      setChecked(!checked);
+    } else setSelected(category);
   };
 
   const submitTransaction = event => {
@@ -65,23 +67,20 @@ export const ModalAddTransaction = () => {
           </label>
           <p className={checked && css.red}>Expense</p>
         </div>
-        {checked && (
-          <select className={css.categories} onChange={setCategory}>
-            <option value="Select option">Select a category</option>
-            {categories &&
-              categories.map(category => {
-                return (
-                  <option
-                    id={category.id}
-                    key={category.id}
-                    value={category.id}
-                  >
-                    {category.name}
-                  </option>
-                );
-              })}
-          </select>
-        )}
+        <select
+          className={checked ? css.categoriesvisible : css.categories}
+          onChange={setCategory}
+        >
+          <option value="Select option">Select a category</option>
+          {categories &&
+            categories.map(category => {
+              return (
+                <option id={category.id} key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              );
+            })}
+        </select>
         <div className={css.inputcontainer}>
           <input
             type="number"
