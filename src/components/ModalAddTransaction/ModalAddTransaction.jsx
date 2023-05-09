@@ -87,8 +87,9 @@ export const ModalAddTransaction = () => {
             name="number"
             className={css.number}
             placeholder="0.00"
+            required
           ></input>
-          <input type="date" name="date" className={css.date}></input>
+          <input type="date" name="date" className={css.date} required></input>
         </div>
         <input
           type="text"
