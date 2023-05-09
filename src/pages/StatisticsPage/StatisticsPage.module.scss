@@ -1,8 +1,3 @@
-.container {
-  background: var(--bg-main-color);
-  display: flex;
-
-}
 .dropdown {
   width: 20px;
   height: 20px;
@@ -21,27 +16,24 @@
 
 
 .statistics {
-  display: flex;
+  &_container {
   padding-top: 15px;
-  // padding-left: 20px;
-  padding-right: 20px;
+  margin-left: -25px;
   min-width: 100%;
-  min-height: 570px;
   background-color: rgba(208, 202, 202, 0.2);
   justify-content: center;
   align-items: center;
-
+  }
   &_section {
-    margin-bottom: 0px;
-    display: flex;
-   align-items:center;
+   display: flex;
    justify-content: center;
+  
   }
 
   &_balance {
     display: flex;
     justify-content: center;
-    align-items: center;
+   
   }
 
   &_currency {
@@ -49,9 +41,10 @@
   }
 
   &_field {
-    width: 280px; 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
  
     }
 
@@ -59,9 +52,9 @@
   &_chart {
     margin-top: 20px;
     display: flex;
-    align-items: right;
     margin-bottom: 30px;
     flex-direction: column;
+    margin-left: 15px;
   }
 
   &_title {
@@ -71,6 +64,11 @@
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
+  }
+  &_table{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
   }
 
   &_donughnut {
@@ -88,26 +86,17 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-  .statistics {
-    padding: 32px;
-    align-items: normal;
+  .statistics{
+  &_container {
+    // padding: 32px;
+    // align-items: normal;
     
-    height: 944px;
+    height: 90vh;
     background-image: url('../../images/Dashboard/bg-tablet-dashboard.png');
     background-repeat: no-repeat;
     background-size: cover;
-
-    &_container {
-      display: flex;
-       
-        align-items: center;
-        flex-direction: column;
+      // align-items: center;
+    flex-direction: column;
       
     }
 
@@ -117,13 +106,13 @@
 
     &_section {
       display: flex;
-      margin-right: 30px;
     }
 
     &_currency {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+       margin-top: 30px;
     }
 
 
@@ -134,31 +123,35 @@
       justify-content: left;
       flex-direction: column;
     }
-
-    &_donughnut {
-      margin-left: 8px;
-      width: 300px;
-    }
+   &_title{
+    margin-left:50px;
+   }
+    // &_donughnut {
+    //   margin-left: 8px;
+    //   width: 300px;
+    // }
 
     &_field {
 
-    width: 730px;
-    padding-right: 30px;
-    display: flex;
+    // width: 730px;
+    // padding-right: 30px;
+    // display: flex;
     flex-direction: row;
     gap: 32px;
     }
 
     &_table {
       display: flex;  
-      padding-left: 20px;
+      // margin-top: 60px;
+      // padding-left: 20px;
       margin: 0px;
-      padding-top: 25px;
+      // padding-top: 25px;
       flex-direction: column;
+      margin-right: 100px;
     }
     &_select {
       display: flex;
-      width: 100%;
+      width: 160px;
       flex-direction: row;
       justify-content: space-between;
       gap: 16px;
@@ -168,12 +161,13 @@
 
 @media screen and (min-width: 1280px) {
   .statistics {
+    &_container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 85px 0px 25px;
     position: relative;
-    min-height: 100%;
+    height: 86vh;
     background-image: url('../../images/Dashboard/bg-desktop-dashboard.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -183,45 +177,41 @@
       position: absolute;
       top: 0;
       width: 0;
-      margin-left: 635px;
+      margin-right: 290px;
       height: 100%;
       border: 1px solid #e7e5f2;
       box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
         1px 0px 0px rgba(255, 255, 255, 0.6);
     }
-
-    &_container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row;
-      margin-left: 180px;
     }
+  
 
     &_section {
       flex-direction: column;
-      padding-bottom: 345px;
+      padding-bottom: 150px;
+      padding-left: 80px;
     }
 
-    &_balance {
-      justify-content: flex-start;
-    }
+    // &_balance {
+    //   justify-content: flex-start;
+    // }
 
     &_currency {
-      margin-left: -50px;
+      margin-left: -30px;
     }
 
     &_field {
-      width: 100%;
+      margin-top: -330px;
       display: flex;
-      align-items: normal;
+      
+   
 
     }
 
     &_chart {
       display: flex;
-      margin-left: 50px;
-      margin-bottom: 565px;
+      margin-left: 130px;
+    
     }
   
     &_title {
@@ -251,51 +241,3 @@
   }
 }
 
-  .table {
-    display: flex;
-    width: 100%;
-    display: block;
-
-    &__item {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding-right: 20px;
-    }
-
-    &__list {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-
-    }
-    &__value {
-      width: 100%;
-      display: flex;
-        justify-content: space-between;
-    }
-        
-    &__name {
-      display: flex;
-      font-size: 16px;
-      color: var(-txt-main-color);
-      font-family: 'Circe';
-      font-style: normal;
-      font-weight: 500;
-      line-height: 18px;
-    }
-    &__total {
-      display: flex;
-      font-size: 16px;
-      color: var(-txt-main-color);
-      font-family: 'Circe';
-      font-style: normal;
-      font-weight: 500;
-      line-height: 18px;
-    }
-
-
-    &__line {
-      width: 100%;
-    }
-  }

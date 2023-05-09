@@ -4,9 +4,9 @@ import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
 import { register } from 'redux/auth/operations';
-import { selectIsAuth } from 'redux/auth/selectors';
+import { selectIsAuth, selectError } from 'redux/auth/selectors';
 import { StrengthPasswordMeter } from '../StrengthPasswordMeter/StrengthPasswordMeter';
 import { Button, } from '../../common/Button/Button';
 import { Input } from '../../common/Form/Input';
@@ -19,7 +19,6 @@ import envelope from '../../images/envelope.svg';
 import padlock from '../../images/padlock.svg';
 import avatar from '../../images/avatar.svg';
 
-const notify = Notiflix.Notify;
 
 const signUpSchema = Yup.object({
     email: Yup.string()
@@ -42,11 +41,19 @@ export const RegistrationForm = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+  const isError = useSelector(selectError);
   const navigate = useNavigate();
   
   useEffect(() => {
+   if (
+      isError !== null &&
+      isError.response !== undefined &&
+      isError.response.status === 404
+    ) {
+      return toast.success('Username or password are incorrect!');
+    }
     if (isAuth) {
-      return notify.success('Successfully registered!');
+      return toast.success('Successfully logged in!');
     }
   });
 

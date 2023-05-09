@@ -108,13 +108,13 @@ export const LoginForm = () => {
             <Button
               classNameBtn={css.buttonsWrapper__submitButton}
               type={'submit'}
-              children={'login'}
+              children={'log in'}
             />
             <Link to="/registration">
               <Button
                 classNameBtn={css.buttonsWrapper__registerButton}
                 type={'button'}
-                children={'registration'}
+                children={'register'}
               />
             </Link>
           </div>
