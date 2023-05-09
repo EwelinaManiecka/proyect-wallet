@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { transactionSummary  } from './operations';
+import { transactionSummary } from './operations';
 
 const initialState = {
   totalBalance: null,
   statistics: {
-    categoriesSummary: 
-      [{
+    categoriesSummary: [
+      {
         name: '',
         total: '',
-      }]
-    ,
+      },
+    ],
     expenses: null,
     income: null,
   },
@@ -21,12 +21,13 @@ const initialState = {
 export const statSlice = createSlice({
   name: 'finance',
   initialState,
-    extraReducers: {
+  extraReducers: {
     [transactionSummary.pending](state, { payload }) {
       state.isLoading = true;
       state.error = null;
     },
     [transactionSummary.fulfilled](state, { payload }) {
+      console.log(payload);
       state.statistics = payload;
       state.isLoading = false;
       state.error = null;

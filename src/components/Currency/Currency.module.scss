@@ -14,11 +14,10 @@
     overflow: hidden;
     border-collapse: collapse;
     background-color: var(--bg-icon-inactive-color);
-    // position: absolute;
 
     @media screen and (min-width: 768px) {
         width: 336px;
-        height: 182px;
+        height: 191px;
         margin-left: 30px;
     }
 
@@ -43,7 +42,7 @@
     @media screen and (min-width: 768px) {
         background-position-y: 17px;
         background-position-x: 2px;
-        background-size: 342px;
+        background-size: 371px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -52,7 +51,7 @@
     }
 }
 
-.currencyTableBody tr:last-child {}
+// .currencyTableBody tr:last-child {}
 
 th {
     text-align: left;

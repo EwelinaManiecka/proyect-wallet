@@ -29,7 +29,7 @@ export const ModalEditTransaction = () => {
       categoryId: transactionToEdit.categoryId,
       comment: event.target.comment.value,
       amount: event.target.number.value,
-      transactionId: transactionToEdit.id
+      transactionId: transactionToEdit._id,
     };
     dispatch(updateTransaction(transactionToUpdate));
     dispatch(toggleModalEditTransaction());

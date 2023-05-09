@@ -45,7 +45,7 @@ export const Header = () => {
         <p className={css.title}>Wallet</p>
       </div>
       <div className={css.logoutDiv}>
-        <p className={css.name}>{user || 'unknow'}</p>
+        <p className={css.name}>{user.username || 'unknow'}</p>
 
         <Media queries={mediaQueries}>
           {matches =>

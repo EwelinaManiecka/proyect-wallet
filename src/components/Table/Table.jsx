@@ -23,9 +23,9 @@ export const Table = () => {
     dispatch(toggleModalEditTransaction());
   };
 
-  const removeTransaction = (id) => {
-    dispatch(deleteTransaction(id))
-  }
+  const removeTransaction = id => {
+    dispatch(deleteTransaction(id));
+  };
 
   const findCategory = option => {
     const categoryToFind = categories.find(
@@ -47,6 +47,7 @@ export const Table = () => {
       </div>
 
       {allTransactions &&
+        categories &&
         categories.length !== 0 &&
         allTransactions.map(transaction => {
           return (
@@ -86,7 +87,7 @@ export const Table = () => {
                 ></img>
                 <button
                   className={css.row__delete}
-                  onClick={() => removeTransaction(transaction.id)}
+                  onClick={() => removeTransaction(transaction._id)}
                 >
                   Delete
                 </button>

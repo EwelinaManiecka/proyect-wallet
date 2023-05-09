@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Balance } from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
@@ -8,15 +8,17 @@ import { ChartDoughnut } from '../../components/Chart/Chart';
 import { Header } from 'components/Header/Header';
 import { Footer } from 'components/Footer/Footer';
 import { transactionSummary } from '../../redux/statistiscs/operations';
+
 import { selectStatistics, selectCategoriesSummary } from '../../redux/statistiscs/selectors';
 import { DiagramTab } from '../../components/DiagramTab/DiagramTab';
 import { SelectStyle } from '../../components/DiagramTab/SelectStyle'
+
 import Select, { components } from 'react-select';
 import arrowDown from '../../images/arrow_down.svg';
 import css from './StatisticsPage.module.scss';
 
 const CaretDownIcon = () => {
-  return <img className={css.dropdown} alt="Logo" src={arrowDown} />
+  return <img className={css.dropdown} alt="Logo" src={arrowDown} />;
 };
 
 const DropdownIndicator = props => {
@@ -42,28 +44,27 @@ export const StatisticsPage = () => {
     ]
 
   const timeZoneRelatedDate = new Date();
-    const actualMonth = timeZoneRelatedDate.toLocaleDateString(
-        'pl-PL', { month: '2-digit' });
-    const actualYear = timeZoneRelatedDate.toLocaleDateString(
-        'pl-PL', { year: 'numeric' });
+  const actualMonth = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
+    month: '2-digit',
+  });
+  const actualYear = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
+    year: 'numeric',
+  });
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const dataStatistisc = useSelector(selectStatistics);
-    const dataCategories = useSelector(selectCategoriesSummary);
-    
-    const [month, setMonth] = useState(actualMonth);
-    const [year, setYear] = useState(actualYear);
-    
- useEffect(() => {
-     dispatch(transactionSummary({ year, month }),
-     )
- }, [year, month, dispatch]);
-  
-  const categories  = dataCategories.map(e => e.name);
+  const dataStatistisc = useSelector(selectStatistics);
+  const dataCategories = useSelector(selectCategoriesSummary);
+
+  const [month, setMonth] = useState(actualMonth);
+  const [year, setYear] = useState(actualYear);
+
+  useEffect(() => {
+    dispatch(transactionSummary({ year, month }));
+  }, [year, month, dispatch]);
+  const categories = dataCategories.map(e => e.name);
   const expense = dataStatistisc.expenseSummary * -1;
-  // const income = dataStatistisc.incomeSummary * -1;
-        
+    
     const monthValue = [
         { value: '01', label: 'January' },
         { value: '02', label: 'February' },
@@ -93,10 +94,11 @@ export const StatisticsPage = () => {
         { value: '2025', label: '2025' },
         { value: '2026', label: '2026' }
     ]
+
   return (
     <>
       <Header />
-        <div className={css.container}>
+      <div className={css.container}>
         <div className={css.statistics}>
           <div className={css.statistics_container}>
             <div className={css.statistics_section}>
@@ -116,7 +118,11 @@ export const StatisticsPage = () => {
               <div className={css.statistics_chart}>
                 <h2 className={css.statistics_title}>Statistics</h2>
                 <div className={css.statistics_donughnut}>
-                  <ChartDoughnut categories={categories} colors={colors} expense={expense} />
+                  <ChartDoughnut
+                    categories={categories}
+                    colors={colors}
+                    expense={expense}
+                  />
                 </div>
               </div>
               <div className={css.statistics_table}>
@@ -128,8 +134,8 @@ export const StatisticsPage = () => {
               </div>
             </div>
           </div>
-          </div>
         </div>
+      </div>
       <Footer />
     </>
   );

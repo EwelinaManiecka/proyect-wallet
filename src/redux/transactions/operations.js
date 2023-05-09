@@ -1,13 +1,20 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://wallet.goit.ua';
+export const addTransactionInstance = axios.create({
+  baseURL: 'https://wallet-app.herokuapp.com/',
+  timeout: '8000',
+  mode: 'cors',
+});
 
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async (transaction, thunkAPI) => {
     try {
-      const { data } = await axios.post('api/transactions', transaction);
+      const { data } = await addTransactionInstance.post(
+        'api/transactions',
+        transaction
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -19,7 +26,7 @@ export const getTransactionCategories = createAsyncThunk(
   'transactions/getTransactionCategories',
   async (categories, thunkAPI) => {
     try {
-      const { data } = await axios.get(
+      const { data } = await addTransactionInstance.get(
         '/api/transaction-categories',
         categories
       );
@@ -34,7 +41,10 @@ export const getAllTransactions = createAsyncThunk(
   'transactions/getAllTransactions',
   async (transactions, thunkAPI) => {
     try {
-      const { data } = await axios.get('/api/transactions', transactions);
+      const { data } = await addTransactionInstance.get(
+        '/api/transactions',
+        transactions
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -46,7 +56,7 @@ export const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
   async (transactionId, thunkAPI) => {
     try {
-      await axios.delete(`/api/transactions/${transactionId}`);
+      await addTransactionInstance.delete(`/api/transactions/${transactionId}`);
       return transactionId;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -66,7 +76,7 @@ export const updateTransaction = createAsyncThunk(
       transactionId,
     } = transaction;
     try {
-      const response  = await axios.patch(
+      const response = await addTransactionInstance.patch(
         `/api/transactions/${transactionId}`,
         {
           transactionDate,
@@ -76,7 +86,8 @@ export const updateTransaction = createAsyncThunk(
           amount,
         }
       );
-      return response.data;
+      const { transaction } = response.data;
+      return transaction;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

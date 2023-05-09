@@ -58,11 +58,7 @@ return (
         ) : (
           <span>No income</span>
         )}
-        </div>
-  </>
-  )
-}
-  
-
-  
-
+      </div>
+    </>
+  );
+};
