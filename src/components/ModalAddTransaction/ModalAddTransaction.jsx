@@ -71,7 +71,9 @@ export const ModalAddTransaction = () => {
           className={checked ? css.categoriesvisible : css.categories}
           onChange={setCategory}
         >
-          <option value="Select option">Select a category</option>
+          <option value="Select option" disabled>
+            Select a category
+          </option>
           {categories &&
             categories.map(category => {
               return (
