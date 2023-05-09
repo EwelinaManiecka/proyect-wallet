@@ -114,7 +114,7 @@ export const LoginForm = () => {
               <Button
                 classNameBtn={css.buttonsWrapper__registerButton}
                 type={'button'}
-                children={'registration'}
+                children={'register'}
               />
             </Link>
           </div>
