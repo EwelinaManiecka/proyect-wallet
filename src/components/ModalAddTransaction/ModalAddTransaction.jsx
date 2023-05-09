@@ -56,7 +56,7 @@ export const ModalAddTransaction = () => {
       <form className={css.modal} onSubmit={submitTransaction}>
         <h1 className={css.modal__title}>Add transaction</h1>
         <div className={css.switcherContainer}>
-          <p className={!checked && css.green}>Income</p>
+          <p className={!checked ? css.green : css.grey}>Income</p>
           <label className={css.switch}>
             <input
               type="checkbox"
@@ -65,7 +65,7 @@ export const ModalAddTransaction = () => {
             ></input>
             <span className={!checked ? css.slider : css.sliderred}></span>
           </label>
-          <p className={checked && css.red}>Expense</p>
+          <p className={checked ? css.red : css.grey}>Expense</p>
         </div>
         <select
           className={checked ? css.categoriesvisible : css.categories}
