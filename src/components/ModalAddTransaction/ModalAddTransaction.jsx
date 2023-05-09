@@ -44,7 +44,7 @@ export const ModalAddTransaction = () => {
       type: type,
       categoryId: checked ? selected : '063f1132-ba5d-42b4-951d-44011ca46262',
       comment: comment,
-      amount: checked ? Number(amount * -1) : Number(amount),
+      amount: checked ? Number(amount) : Number(amount),
     };
     console.log(newTransaction);
     dispatch(addTransaction(newTransaction));
