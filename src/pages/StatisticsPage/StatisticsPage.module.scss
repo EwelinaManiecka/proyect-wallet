@@ -14,26 +14,23 @@
   color: var(--txt-main-color);
 }
 
-
 .statistics {
   &_container {
-  padding-top: 15px;
-  margin-left: -25px;
-  min-width: 100%;
-  background-color: rgba(208, 202, 202, 0.2);
-  justify-content: center;
-  align-items: center;
+    padding-top: 15px;
+    margin-left: -25px;
+    min-width: 100%;
+    background-color: rgba(208, 202, 202, 0.2);
+    justify-content: center;
+    align-items: center;
   }
   &_section {
-   display: flex;
-   justify-content: center;
-  
+    display: flex;
+    justify-content: center;
   }
 
   &_balance {
     display: flex;
     justify-content: center;
-   
   }
 
   &_currency {
@@ -45,9 +42,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
-    }
-
+  }
 
   &_chart {
     margin-top: 20px;
@@ -65,7 +60,7 @@
     font-size: 30px;
     line-height: 45px;
   }
-  &_table{
+  &_table {
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -75,29 +70,23 @@
     justify-content: center;
     align-items: center;
   }
-    &_select {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 20px;
-    }
-
-
+  &_select {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .statistics{
-  &_container {
-    // padding: 32px;
-    // align-items: normal;
-    
-    height: 90vh;
-    background-image: url('../../images/Dashboard/bg-tablet-dashboard.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-      // align-items: center;
-    flex-direction: column;
-      
+  .statistics {
+    &_container {
+      height: 90vh;
+      background-image: url('../../images/Dashboard/bg-tablet-dashboard.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      flex-direction: column;
     }
 
     &_balance {
@@ -112,9 +101,8 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-       margin-top: 30px;
+      margin-top: 30px;
     }
-
 
     &_chart {
       padding-top: 30px;
@@ -123,29 +111,20 @@
       justify-content: left;
       flex-direction: column;
     }
-   &_title{
-    margin-left:50px;
-   }
-    // &_donughnut {
-    //   margin-left: 8px;
-    //   width: 300px;
-    // }
+    &_title {
+      margin-left: 50px;
+    }
 
     &_field {
-
-    // width: 730px;
-    // padding-right: 30px;
-    // display: flex;
-    flex-direction: row;
-    gap: 32px;
+      flex-direction: row;
+      gap: 32px;
     }
 
     &_table {
-      display: flex;  
-      // margin-top: 60px;
-      // padding-left: 20px;
+      display: flex;
+
       margin: 0px;
-      // padding-top: 25px;
+
       flex-direction: column;
       margin-right: 100px;
     }
@@ -161,40 +140,35 @@
 
 @media screen and (min-width: 1280px) {
   .statistics {
-    &_container{
+    &_container {
       display: flex;
       justify-content: center;
       align-items: center;
-    flex-direction: row;
-    position: relative;
-    height: 86vh;
-    background-image: url('../../images/Dashboard/bg-desktop-dashboard.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+      flex-direction: row;
+      position: relative;
+      height: 86vh;
+      background-image: url('../../images/Dashboard/bg-desktop-dashboard.png');
+      background-repeat: no-repeat;
+      background-size: cover;
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 0;
-      margin-right: 290px;
-      height: 100%;
-      border: 1px solid #e7e5f2;
-      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-        1px 0px 0px rgba(255, 255, 255, 0.6);
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 0;
+        margin-right: 290px;
+        height: 100%;
+        border: 1px solid #e7e5f2;
+        box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+          1px 0px 0px rgba(255, 255, 255, 0.6);
+      }
     }
-    }
-  
 
     &_section {
       flex-direction: column;
       padding-bottom: 150px;
       padding-left: 80px;
     }
-
-    // &_balance {
-    //   justify-content: flex-start;
-    // }
 
     &_currency {
       margin-left: -30px;
@@ -203,17 +177,13 @@
     &_field {
       margin-top: -330px;
       display: flex;
-      
-   
-
     }
 
     &_chart {
       display: flex;
       margin-left: 130px;
-    
     }
-  
+
     &_title {
       font-family: 'Poppins';
       margin-bottom: 20px;
@@ -229,7 +199,6 @@
       margin-top: 40px;
       padding-left: 0px;
       min-width: 370px;
-     
     }
 
     &_select {
@@ -240,4 +209,3 @@
     }
   }
 }
-

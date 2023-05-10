@@ -9,8 +9,7 @@ export const CurrencyPage = () => {
   return (
     <>
       <Header />
-      <div className={css.container}>
-        <div className={css.currency}>
+       <div className={css.currency}>
           <div className={css.currency_section}>
             <div>
               <Navigation />
@@ -20,7 +19,6 @@ export const CurrencyPage = () => {
             </div>
           </div>
         </div>
-      </div>
       <Footer />
     </>
   );
