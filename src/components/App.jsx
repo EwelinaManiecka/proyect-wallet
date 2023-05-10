@@ -12,10 +12,17 @@ import { DashboardPage } from '../pages/DashboardPage/DashboardPage';
 import { StatisticsPage } from '../pages/StatisticsPage/StatisticsPage';
 import { CurrencyPage } from '../pages/CurrencyPage/CurrencyPage';
 import { fetchCurrentUser } from '../redux/auth/operations';
-import { getTransactionCategories, getAllTransactions } from 'redux/transactions/operations';
+import {
+  getTransactionCategories,
+  getAllTransactions,
+} from 'redux/transactions/operations';
 import { useAuth } from 'hooks';
 
 import { Spinner } from './Spinner/Spinner';
+import {
+  getStatistics,
+  transactionSummary,
+} from 'redux/statistiscs/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,9 +31,10 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchCurrentUser());
     dispatch(getTransactionCategories());
-    dispatch(getAllTransactions())
+    dispatch(getAllTransactions());
+    dispatch(getStatistics());
+    dispatch(transactionSummary({ year: 0, month: 0 }));
   }, [dispatch]);
-  
 
   return isRefreshing ? (
     <Spinner />
