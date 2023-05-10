@@ -36,7 +36,7 @@ export const transactionsSlice = createSlice({
     },
     [getTransactionCategories.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.categories = action.payload;
+      state.categories = action.payload.categories;
       state.error = null;
     },
     [getTransactionCategories.rejected]: (state, action) => {
@@ -48,7 +48,7 @@ export const transactionsSlice = createSlice({
     },
     [getAllTransactions.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.transactions = action.payload;
+      state.transactions = action.payload.allTransactions;
       state.error = null;
       state.balance = 0;
     },

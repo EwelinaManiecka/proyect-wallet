@@ -31,6 +31,9 @@ export const Table = () => {
     const categoryToFind = categories.find(
       category => category.id === option.categoryId
     );
+    if (!categoryToFind) {
+      return;
+    }
     return categoryToFind.name;
   };
 

@@ -24,7 +24,7 @@ export const Header = () => {
   const isModalLogoutOpen = useSelector(selectIsModalOpen);
   const dispatch = useDispatch();
   const { user } = useAuth();
-
+  console.log(user);
   const handleLogout = () => {
     dispatch(resetState());
     dispatch(logOut());
@@ -45,7 +45,7 @@ export const Header = () => {
         <p className={css.title}>Wallet</p>
       </div>
       <div className={css.logoutDiv}>
-        <p className={css.name}>{user.name || 'unknow'}</p>
+        <p className={css.name}>{user ? user.username : 'unknown'}</p>
 
         <Media queries={mediaQueries}>
           {matches =>

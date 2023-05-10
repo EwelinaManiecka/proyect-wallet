@@ -14,7 +14,6 @@ export const DiagramTab = ({ data }) => {
     '#00AD84', // Other expenses
     '#DC6FF2', // Entertainment
   ];
-  console.log(data);
   return (
     <>
       <div className={css.label}>
@@ -23,37 +22,34 @@ export const DiagramTab = ({ data }) => {
       </div>
       <ul className={css.list}>
         {data !== undefined &&
-          data.transactionSummary.transactionSummary.summary.all.map(
-            (item, index) => (
-              <li className={css.table} key={index}>
-                <div className={css.table__item}>
-                  <div
-                    style={{
-                      backgroundColor: colors[index],
-                      display: 'block',
-                      width: '24px',
-                      height: '24px',
-                      marginRight: '16px',
-                      marginLeft: '20px',
-                      borderRadius: '2px',
-                    }}
-                  ></div>
-                  <div className={css.table__value}>
-                    <div className={css.table__name}>{item.category}</div>
-                    <div className={css.table__total}>{item.amount * -1}</div>
-                  </div>
+          data.all.map((item, index) => (
+            <li className={css.table} key={index}>
+              <div className={css.table__item}>
+                <div
+                  style={{
+                    backgroundColor: colors[index],
+                    display: 'block',
+                    width: '24px',
+                    height: '24px',
+                    marginRight: '16px',
+                    marginLeft: '20px',
+                    borderRadius: '2px',
+                  }}
+                ></div>
+                <div className={css.table__value}>
+                  <div className={css.table__name}>{item.category}</div>
+                  <div className={css.table__total}>{item.amount * -1}</div>
                 </div>
-                <img className={css.table__line} alt="" src={line} />
-              </li>
-            )
-          )}
+              </div>
+              <img className={css.table__line} alt="" src={line} />
+            </li>
+          ))}
       </ul>
       <div className={css.summary}>
         Expenses:
-        {data.expenseSummary !== 0 ? (
+        {data.expense.expenseAll !== 0 ? (
           <span className={css.summary__expense}>
-            {data.transactionSummary.transactionSummary.summary.expense
-              .expenseAll * -1}
+            {data.expense.expenseMonth * -1}
           </span>
         ) : (
           <span>No expense</span>
@@ -61,13 +57,8 @@ export const DiagramTab = ({ data }) => {
       </div>
       <div className={css.summary}>
         Income:
-        {data.incomeSummary !== 0 ? (
-          <span className={css.summary__income}>
-            {
-              data.transactionSummary.transactionSummary.summary.income
-                .incomeAll
-            }
-          </span>
+        {data.income.incomeAll !== 0 ? (
+          <span className={css.summary__income}>{data.income.incomeMonth}</span>
         ) : (
           <span>No income</span>
         )}
