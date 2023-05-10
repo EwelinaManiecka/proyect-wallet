@@ -112,7 +112,7 @@ export const StatisticsPage = () => {
           </div>
           <Currency className={css.statistics_currency} />
         </div>
-        <div className={css.statistics_section}>
+        <div className={css.statistics_field}>
           <div className={css.statistics_chart}>
             <h2 className={css.statistics_title}>Statistics</h2>
             <div className={css.statistics_donughnut}>
