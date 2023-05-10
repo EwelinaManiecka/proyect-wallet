@@ -5,18 +5,17 @@ import {
 import { deleteTransaction } from 'redux/transactions/operations';
 import {
   selectTransactions,
-  selectCategories,
 } from 'redux/transactions/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Table.module.scss';
 import pen from './../../images/pen.svg';
+import { categories } from './categories';
 
 const uniqid = require('uniqid');
 
 export const Table = () => {
   const dispatch = useDispatch();
   const allTransactions = useSelector(selectTransactions);
-  const categories = useSelector(selectCategories);
 
   const toggleModal = data => {
     dispatch(setTransactionToEdit(data));
@@ -76,9 +75,8 @@ export const Table = () => {
                   }
                   key={uniqid()}
                 >
-                  {transaction.type === 'INCOME'
-                    ? transaction.amount.toFixed(2)
-                    : (transaction.amount * -1).toFixed(2)}
+                  {transaction.amount.toFixed(2)
+                    }
                 </li>
               </ul>
               <div className={css.row__icons}>
