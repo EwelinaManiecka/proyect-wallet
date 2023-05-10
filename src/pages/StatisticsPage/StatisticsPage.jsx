@@ -61,8 +61,6 @@ export const StatisticsPage = () => {
   const dataStatistisc = useSelector(selectStatistics);
   const dataCategories = useSelector(selectCategoriesSummary);
 
-  console.log(dataStatistisc);
-
   const [month, setMonth] = useState(actualMonth);
   const [year, setYear] = useState(actualYear);
 
