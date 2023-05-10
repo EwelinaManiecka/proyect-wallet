@@ -1,5 +1,5 @@
 import { toggleModalAddTransaction } from 'redux/global/global-action';
-import { addTransaction, getAllTransactions } from 'redux/transactions/operations';
+import { addTransaction } from 'redux/transactions/operations';
 import { useDispatch } from 'react-redux';
 import css from './ModalAddTransaction.module.scss';
 import { Button } from 'common/Button/Button';
@@ -46,7 +46,6 @@ export const ModalAddTransaction = () => {
       amount: checked ? Number(amount) : Number(amount),
     };
     dispatch(addTransaction(newTransaction));
-    dispatch(getAllTransactions())
     dispatch(toggleModalAddTransaction());
   };
 
