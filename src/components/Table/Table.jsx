@@ -3,9 +3,7 @@ import {
   setTransactionToEdit,
 } from 'redux/global/global-action';
 import { deleteTransaction } from 'redux/transactions/operations';
-import {
-  selectTransactions,
-} from 'redux/transactions/selectors';
+import { selectTransactions } from 'redux/transactions/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Table.module.scss';
 import pen from './../../images/pen.svg';
@@ -75,8 +73,7 @@ export const Table = () => {
                   }
                   key={uniqid()}
                 >
-                  {transaction.amount.toFixed(2)
-                    }
+                  {transaction.amount}
                 </li>
               </ul>
               <div className={css.row__icons}>
