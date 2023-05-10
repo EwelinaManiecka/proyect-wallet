@@ -3,6 +3,9 @@
  }
 .table {
    width: 715px;
+   max-height: 35vh;
+   overflow:auto;
+   padding-right: 10px;
 }
 .headerContainer {
   background-color: white;
@@ -71,5 +74,6 @@
   .table{
     // margin-top: -355px;
     margin-left: 60px;
+    max-height: 60vh;
   }
 }
