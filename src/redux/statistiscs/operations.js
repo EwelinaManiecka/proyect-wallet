@@ -20,3 +20,17 @@ export const transactionSummary = createAsyncThunk(
     }
   }
 );
+
+export const getStatistics = createAsyncThunk(
+  'transactions/getStatistics',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await transactionInstance.get(
+        '/transaction-categories/statistics'
+      );
+      return data.stats;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);

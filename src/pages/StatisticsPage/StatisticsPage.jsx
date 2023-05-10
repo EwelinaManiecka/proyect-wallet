@@ -9,13 +9,18 @@ import { Header } from 'components/Header/Header';
 import { Footer } from 'components/Footer/Footer';
 import { transactionSummary } from '../../redux/statistiscs/operations';
 
-import { selectStatistics, selectCategoriesSummary } from '../../redux/statistiscs/selectors';
+import {
+  selectStatistics,
+  selectCategoriesSummary,
+} from '../../redux/statistiscs/selectors';
 import { DiagramTab } from '../../components/DiagramTab/DiagramTab';
-import { SelectStyle } from '../../components/DiagramTab/SelectStyle'
+import { SelectStyle } from '../../components/DiagramTab/SelectStyle';
 
 import Select, { components } from 'react-select';
 import arrowDown from '../../images/arrow_down.svg';
 import css from './StatisticsPage.module.scss';
+
+import { getStatistics } from '../../redux/statistiscs/operations';
 
 const CaretDownIcon = () => {
   return <img className={css.dropdown} alt="Logo" src={arrowDown} />;
@@ -30,18 +35,18 @@ const DropdownIndicator = props => {
 };
 
 export const StatisticsPage = () => {
-    const colors = [
-  '#FED057', // Main expenses
-  '#FFD8D0', // Products
-  '#FD9498', // Car
-  '#C5BAFF', // Self care
-  '#6E78E8', // Child care
-  '#4A56E2', // Household products
-  '#81E1FF', // Education
-  '#24CCA7', // Leisure
-  '#00AD84', // Other expenses
-  '#DC6FF2', // Entertainment
-    ]
+  const colors = [
+    '#FED057', // Main expenses
+    '#FFD8D0', // Products
+    '#FD9498', // Car
+    '#C5BAFF', // Self care
+    '#6E78E8', // Child care
+    '#4A56E2', // Household products
+    '#81E1FF', // Education
+    '#24CCA7', // Leisure
+    '#00AD84', // Other expenses
+    '#DC6FF2', // Entertainment
+  ];
 
   const timeZoneRelatedDate = new Date();
   const actualMonth = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
@@ -61,39 +66,51 @@ export const StatisticsPage = () => {
 
   useEffect(() => {
     dispatch(transactionSummary({ year, month }));
+    dispatch(getStatistics());
   }, [year, month, dispatch]);
   const categories = dataCategories.map(e => e.name);
-  const expense = dataStatistisc.expenseSummary * -1;
-    
-    const monthValue = [
-        { value: '01', label: 'January' },
-        { value: '02', label: 'February' },
-        { value: '03', label: 'March' },
-        { value: '04', label: 'April' },
-        { value: '05', label: 'May' },
-        { value: '06', label: 'June' },
-        { value: '07', label: 'July' },
-        { value: '08', label: 'August' },
-        { value: '09', label: 'September' },
-        { value: '10', label: 'October' },
-        { value: '11', label: 'November' },
-        { value: '12', label: 'December' }
-    ]
 
-    const yearValue = [
-        { value: '2015', label: '2015' },
-        { value: '2016', label: '2016' },
-        { value: '2017', label: '2017' },
-        { value: '2018', label: '2018' },
-        { value: '2019', label: '2019' },
-        { value: '2020', label: '2020' },
-        { value: '2021', label: '2021' },
-        { value: '2022', label: '2022' },
-        { value: '2023', label: '2023' },
-        { value: '2024', label: '2024' },
-        { value: '2025', label: '2025' },
-        { value: '2026', label: '2026' }
-    ]
+  let summary = dataStatistisc;
+
+  // console.log(summary);
+  // const expense = summary.expense.expenseAll;
+  // console.log(expense);
+  // const expenseYear = summary.expense.expenseYear * -1;
+  // const expenseMonth = summary.expense.expenseMonth * -1;
+
+  // const income = summary.income.incomeAll;
+  // const incomeYear = summary.income.incomeYear;
+  // const incomeMonth = summary.income.incomeMonth;
+
+  const monthValue = [
+    { value: '01', label: 'January' },
+    { value: '02', label: 'February' },
+    { value: '03', label: 'March' },
+    { value: '04', label: 'April' },
+    { value: '05', label: 'May' },
+    { value: '06', label: 'June' },
+    { value: '07', label: 'July' },
+    { value: '08', label: 'August' },
+    { value: '09', label: 'September' },
+    { value: '10', label: 'October' },
+    { value: '11', label: 'November' },
+    { value: '12', label: 'December' },
+  ];
+
+  const yearValue = [
+    { value: '2015', label: '2015' },
+    { value: '2016', label: '2016' },
+    { value: '2017', label: '2017' },
+    { value: '2018', label: '2018' },
+    { value: '2019', label: '2019' },
+    { value: '2020', label: '2020' },
+    { value: '2021', label: '2021' },
+    { value: '2022', label: '2022' },
+    { value: '2023', label: '2023' },
+    { value: '2024', label: '2024' },
+    { value: '2025', label: '2025' },
+    { value: '2026', label: '2026' },
+  ];
 
   return (
     <>
@@ -121,15 +138,34 @@ export const StatisticsPage = () => {
                   <ChartDoughnut
                     categories={categories}
                     colors={colors}
-                    expense={expense}
+                    expense={
+                      summary.transactionSummary
+                        ? summary.transactionSummary.transactionSummary.summary
+                            .expense.expenseAll
+                        : 0
+                    }
                   />
                 </div>
               </div>
               <div className={css.statistics_table}>
                 <div className={css.statistics_select}>
-                    <Select components={{ DropdownIndicator }} styles={SelectStyle} placeholder={actualMonth} defaultValue={actualMonth} onChange={e => setMonth(e.value)} options={monthValue} />
-                    <Select components={{ DropdownIndicator }} styles={SelectStyle} placeholder={actualYear} defaultValue={actualYear} onChange={e => setYear(e.value)} options={yearValue} />
-                  </div>
+                  <Select
+                    components={{ DropdownIndicator }}
+                    styles={SelectStyle}
+                    placeholder={actualMonth}
+                    defaultValue={actualMonth}
+                    onChange={e => setMonth(e.value)}
+                    options={monthValue}
+                  />
+                  <Select
+                    components={{ DropdownIndicator }}
+                    styles={SelectStyle}
+                    placeholder={actualYear}
+                    defaultValue={actualYear}
+                    onChange={e => setYear(e.value)}
+                    options={yearValue}
+                  />
+                </div>
                 <DiagramTab data={dataStatistisc} />
               </div>
             </div>
