@@ -73,9 +73,8 @@ export const Table = () => {
                   }
                   key={uniqid()}
                 >
-                  {transaction.type === 'INCOME'
-                    ? transaction.amount.toFixed(2)
-                    : (transaction.amount * -1).toFixed(2)}
+                  {transaction.amount.toFixed(2)
+                    }
                 </li>
               </ul>
               <div className={css.row__icons}>
