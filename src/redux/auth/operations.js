@@ -1,29 +1,25 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { addTransactionInstance } from 'redux/transactions/operations';
-import { transactionInstance } from 'redux/statistiscs/operations';
 
-const authInstance = axios.create({
+export const apiInstance = axios.create({
   baseURL: 'https://wallet-app.herokuapp.com/api',
   timeout: '8000',
   mode: 'cors',
 });
 
 const setAuthToken = token => {
-  authInstance.defaults.headers.common.Authorization = `${token}`;
-  transactionInstance.defaults.headers.common.Authorization = `${token}`;
-  addTransactionInstance.defaults.headers.common.Authorization = `${token}`;
+  apiInstance.defaults.headers.common.Authorization = `${token}`;
 };
 
 const clearAuthToken = () => {
-  authInstance.defaults.headers.common.Authorization = '';
+  apiInstance.defaults.headers.common.Authorization = '';
 };
 
 export const register = createAsyncThunk(
   'auth/sign-up',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await authInstance.post('/auth/sign-up', credentials);
+      const { data } = await apiInstance.post('/auth/sign-up', credentials);
       setAuthToken(data.token);
       return data;
     } catch (error) {
@@ -36,7 +32,7 @@ export const logIn = createAsyncThunk(
   'auth/sign-in',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await authInstance.post('/auth/sign-in', credentials);
+      const { data } = await apiInstance.post('/auth/sign-in', credentials);
       setAuthToken(data.token);
       return data;
     } catch (error) {
@@ -47,7 +43,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('sign-out', async (_, thunkAPI) => {
   try {
-    await authInstance.delete('/auth/sign-out');
+    await apiInstance.delete('/auth/sign-out');
     clearAuthToken();
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -65,7 +61,7 @@ export const fetchCurrentUser = createAsyncThunk(
 
     try {
       setAuthToken(persistedToken);
-      const { data } = await authInstance.get('/users/current');
+      const { data } = await apiInstance.get('/users/current');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

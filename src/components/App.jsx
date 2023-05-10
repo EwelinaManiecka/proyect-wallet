@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { PrivateRoute } from '../Routes/PrivateRoute';
 import { PublicRoute } from '../Routes/PublicRoute';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
@@ -19,24 +19,26 @@ import {
 import { useAuth } from 'hooks';
 
 import { Spinner } from './Spinner/Spinner';
+import { transactionSummary } from 'redux/statistiscs/operations';
 import {
-  getStatistics,
-  transactionSummary,
-} from 'redux/statistiscs/operations';
+  selectCategories,
+  selectTransactions,
+} from 'redux/transactions/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn } = useAuth();
+  const categories = useSelector(selectCategories);
+  const trans = useSelector(selectTransactions);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
     dispatch(getTransactionCategories());
     dispatch(getAllTransactions());
-    dispatch(getStatistics());
     dispatch(transactionSummary({ year: 0, month: 0 }));
-  }, [dispatch]);
+  }, [dispatch, trans.length, isLoggedIn]);
 
-  return isRefreshing ? (
+  return isRefreshing && categories ? (
     <Spinner />
   ) : (
     <>
