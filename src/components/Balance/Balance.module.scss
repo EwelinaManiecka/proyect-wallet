@@ -1,14 +1,25 @@
 .wrapper {
-  height: 80px;
-  padding: 8px 40px 13px;
-  width: 280px;
-  margin-top: 27px;
-  background: #ffffff;
-  border-radius: 30px;
-  justify-content: flex-start;
+display: none;
 
   @media screen and (min-width: 768px) {
     width: 334px;
+    display: block;
+    height: 80px;
+    margin-top: 28px;
+    background: #ffffff;
+    border-radius: 30px;
+
+    &_title {
+        font-family: 'Circe';
+        text-align: start;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.5;
+        text-transform: uppercase;
+        margin-left: 40px;
+        color: #a6a6a6;
+        padding-top: 8px;
+    }
   }
 
   @media screen and (min-width: 1280px) {
@@ -24,9 +35,7 @@
   font-size: 12px;
   line-height: 1.5;
   text-transform: uppercase;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
+  margin-left: 40px;
   color: #a6a6a6;
 }
 
@@ -36,11 +45,8 @@
   font-weight: 600;
   font-size: 30px;
   line-height: 1.5;
-  display: flex;
-  align-items: center;
-  margin: 0;
-
   color: #000000;
+  margin-left: 40px;
 }
 
 .currency {

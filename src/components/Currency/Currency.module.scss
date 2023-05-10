@@ -3,33 +3,35 @@
 
 
 .currencyTable {
-    color: white;
-    font-size: 16px;
-    line-height: 26.53px;
-    font-weight: 700;
-    font-family: 'Circe';
-    width: 280px;
-    border-radius: 30px;
-    justify-content: center;
-    overflow: hidden;
-    border-collapse: collapse;
-    background-color: var(--bg-icon-inactive-color);
+        display: none;
 
     @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-size: 16px;
+        line-height: 26.53px;
+        font-weight: 700;
+        font-family: 'Circe';
+        width: 280px;
+        border-radius: 30px;
+        justify-content: center;
+        overflow: hidden;
+        border-collapse: collapse;
+        background-color: var(--bg-icon-inactive-color);
         width: 336px;
         height: 191px;
         margin-left: 30px;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 393px;
-        
-       
+        width: 393px;  
     }
 }
 
 .currencyTableHead {
     height: 50px;
+    display: inline-table;
 }
 
 
@@ -38,6 +40,8 @@
     background-image: url('../../images//currency-wave-light.svg');
     background-position: bottom;
     background-repeat: no-repeat;
+    display: inline-table;
+
 
     @media screen and (min-width: 768px) {
         background-position-y: 17px;

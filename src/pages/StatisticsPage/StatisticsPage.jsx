@@ -6,6 +6,7 @@ import { Balance } from 'components/Balance/Balance';
 import { ChartDoughnut } from '../../components/Chart/Chart';
 import { Header } from 'components/Header/Header';
 import { Footer } from 'components/Footer/Footer';
+import { Currency } from 'components/Currency/Currency';
 import { transactionSummary } from '../../redux/statistiscs/operations';
 
 import {
@@ -105,43 +106,41 @@ export const StatisticsPage = () => {
       <Header />
       <div className={css.statistics_container}>
         <div className={css.statistics_section}>
-          <div className={css.statistics_navigation}>
-            <Navigation />
-            <div className={css.statistics_balance}>
-              <Balance />
+          <div className={css.statistic_tableLeft}>
+            <Navigation className={css.statistics_navigation} />
+            <Balance className={css.statistics_balance} />
+          </div>
+          <Currency className={css.statistics_currency} />
+        </div>
+        <div className={css.statistics_section}>
+          <div className={css.statistics_chart}>
+            <h2 className={css.statistics_title}>Statistics</h2>
+            <div className={css.statistics_donughnut}>
+              <ChartDoughnut
+                categories={categories}
+                colors={colors}
+                expense={summary.expense ? summary.expense.expenseMonth : 0}
+              />
             </div>
-            <div className={css.statistics_field}>
-              <div className={css.statistics_chart}>
-                <h2 className={css.statistics_title}>Statistics</h2>
-                <div className={css.statistics_donughnut}>
-                  <ChartDoughnut
-                    categories={categories}
-                    colors={colors}
-                    expense={summary.expense ? summary.expense.expenseMonth : 0}
-                  />
-                </div>
-              </div>
-              <div className={css.statistics_table}>
-                <div className={css.statistics_select}>
-                  <Select
-                    components={{ DropdownIndicator }}
-                    styles={SelectStyle}
-                    placeholder={actualMonth}
-                    defaultValue={actualMonth}
-                    onChange={e => setMonth(e.value)}
-                    options={monthValue}
-                  />
-                  <Select
-                    components={{ DropdownIndicator }}
-                    styles={SelectStyle}
-                    placeholder={actualYear}
-                    defaultValue={actualYear}
-                    onChange={e => setYear(e.value)}
-                    options={yearValue}
-                  />
-                </div>
-                <DiagramTab data={dataStatistisc} />
-              </div>
+          </div>
+          <div className={css.statistics_table}>
+            <div className={css.statistics_select}>
+              <Select
+                components={{ DropdownIndicator }}
+                styles={SelectStyle}
+                placeholder={actualMonth}
+                defaultValue={actualMonth}
+                onChange={e => setMonth(e.value)}
+                options={monthValue}
+              />
+              <Select
+                components={{ DropdownIndicator }}
+                styles={SelectStyle}
+                placeholder={actualYear}
+                defaultValue={actualYear}
+                onChange={e => setYear(e.value)}
+                options={yearValue}
+              />
             </div>
             <DiagramTab data={dataStatistisc} />
           </div>
