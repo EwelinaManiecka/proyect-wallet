@@ -147,7 +147,7 @@ export const StatisticsPage = () => {
                 options={yearValue}
               />
             </div>
-            <DiagramTab data={dataStatistisc} />
+            <DiagramTab data={dataStatistisc} categories={dataCategories}/>
           </div>
         </div>
       </div>

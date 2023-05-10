@@ -1,7 +1,7 @@
 import css from './DiagramTab.module.scss';
 import line from '../../images/line.svg';
 
-export const DiagramTab = ({ data }) => {
+export const DiagramTab = ({ data, categories }) => {
   const colors = [
     '#FED057', // Main expenses
     '#FFD8D0', // Products
@@ -14,6 +14,7 @@ export const DiagramTab = ({ data }) => {
     '#00AD84', // Other expenses
     '#DC6FF2', // Entertainment
   ];
+  const category = categories;
   return (
     <>
       <div className={css.label}>
@@ -37,7 +38,7 @@ export const DiagramTab = ({ data }) => {
                   }}
                 ></div>
                 <div className={css.table__value}>
-                  <div className={css.table__name}>{item.category}</div>
+                  <div className={css.table__name}>{category.filter((value , index)=> value.id === item.categoryId).map(e => e.name)}</div>
                   <div className={css.table__total}>{item.amount * -1}</div>
                 </div>
               </div>
