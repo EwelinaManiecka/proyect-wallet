@@ -104,21 +104,12 @@ export const StatisticsPage = () => {
   return (
     <>
       <Header />
-      <div className={css.container}>
-        <div className={css.statistics}>
-          <div className={css.statistics_container}>
-            <div className={css.statistics_section}>
-              <div className={css.statistics_navigation}>
-                <Navigation />
-                <div className={css.statistics_balance}>
-                  <Balance />
-                </div>
-              </div>
-              <div className={css.statistics_currency}>
-                <div>
-                  <Currency />
-                </div>
-              </div>
+      <div className={css.statistics_container}>
+        <div className={css.statistics_section}>
+          <div className={css.statistics_navigation}>
+            <Navigation />
+            <div className={css.statistics_balance}>
+              <Balance />
             </div>
             <div className={css.statistics_field}>
               <div className={css.statistics_chart}>
@@ -153,6 +144,7 @@ export const StatisticsPage = () => {
                 <DiagramTab data={dataStatistisc} />
               </div>
             </div>
+            <DiagramTab data={dataStatistisc} />
           </div>
         </div>
       </div>
