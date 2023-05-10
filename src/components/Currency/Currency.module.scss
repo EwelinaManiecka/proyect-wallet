@@ -16,87 +16,101 @@
     background-color: var(--bg-icon-inactive-color);
 
     @media screen and (min-width: 768px) {
-        width: 336px;
-        height: 191px;
-        margin-left: 30px;
+        color: white;
+        font-size: 16px;
+        line-height: 26.53px;
+        font-weight: 700;
+        font-family: 'Circe';
+        width: 280px;
+        border-radius: 30px;
+        justify-content: center;
+        overflow: hidden;
+        border-collapse: collapse;
+        background-color: var(--bg-icon-inactive-color);
+
+        @media screen and (min-width: 768px) {
+            width: 336px;
+            height: 191px;
+            margin-left: 30px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 393px;
+
+
+        }
     }
 
-    @media screen and (min-width: 1280px) {
-        width: 393px;
-        
-       
-    }
-}
-
-.currencyTableHead {
-    height: 50px;
-}
-
-
-.currencyTableBody {
-    background-color: var(--bg-icon-active-color);
-    background-image: url('../../images//currency-wave-light.svg');
-    background-position: bottom;
-    background-repeat: no-repeat;
-
-    @media screen and (min-width: 768px) {
-        background-position-y: 17px;
-        background-position-x: 2px;
-        background-size: 371px;
+    .currencyTableHead {
+        height: 50px;
     }
 
-    @media screen and (min-width: 1280px) {
-        background-size: 400px;
-        background-position-y: 170px
+
+    .currencyTableBody {
+        background-color: var(--bg-icon-active-color);
+        background-image: url('../../images//currency-wave-light.svg');
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+        @media screen and (min-width: 768px) {
+            background-position-y: 17px;
+            background-position-x: 2px;
+            background-size: 371px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            background-size: 400px;
+            background-position-y: 170px
+        }
     }
-}
 
-// .currencyTableBody tr:last-child {}
+    // .currencyTableBody tr:last-child {}
 
-th {
-    text-align: left;
-    padding-left: 20px;
+    th {
+        text-align: left;
+        padding-left: 20px;
 
-    @media screen and (min-width: 1280px) {
-        padding-left: 40px;
+        @media screen and (min-width: 1280px) {
+            padding-left: 40px;
+        }
     }
-}
 
-td {
-    text-align: left;
-    padding: 12px 0px 12px 20px;
+    td {
+        text-align: left;
+        padding: 12px 0px 12px 20px;
 
-    @media screen and (min-width: 1280px) {
-        padding: 24px 0px 20px 0px;
-        text-align: center;
+        @media screen and (min-width: 1280px) {
+            padding: 24px 0px 20px 0px;
+            text-align: center;
+        }
     }
-}
 
-.currencyTableBody tr:nth-child(2) td {
-    padding-top: 0px;
-    padding-bottom: 55px;
-
-    @media screen and (min-width: 1280px) {
+    .currencyTableBody tr:nth-child(2) td {
         padding-top: 0px;
-        padding-bottom: 204px;
-    }
-}
+        padding-bottom: 55px;
 
-.spinnerBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 35px;
-    height: 35px;
-
-    @media screen and (min-width: 768px) {
-        width: 65px;
-        height: 65px;
+        @media screen and (min-width: 1280px) {
+            padding-top: 0px;
+            padding-bottom: 204px;
+        }
     }
 
-    @media screen and (min-width: 1280px) {
-        width: 100px;
-        height: 100px;
+    .spinnerBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 35px;
+        height: 35px;
+
+        @media screen and (min-width: 768px) {
+            width: 65px;
+            height: 65px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 100px;
+            height: 100px;
+        }
     }
 }
