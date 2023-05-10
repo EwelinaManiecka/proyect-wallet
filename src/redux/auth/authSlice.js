@@ -32,6 +32,7 @@ export const authSlice = createSlice({
     [logOut.fulfilled](state) {
       state.token = null;
       state.isLoggedIn = false;
+      state.isRefreshing = false;
     },
     [logOut.rejected](state, { payload }) {
       state.error = payload;
@@ -47,6 +48,7 @@ export const authSlice = createSlice({
     },
     [fetchCurrentUser.rejected](state) {
       state.isRefreshing = false;
+      state.isLoggedIn = false;
     },
   },
 });
