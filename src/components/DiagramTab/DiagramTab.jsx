@@ -15,6 +15,8 @@ export const DiagramTab = ({ data, categories }) => {
     '#DC6FF2', // Entertainment
   ];
   const category = categories;
+  console.log(data.all);
+
   return (
     <>
       <div className={css.label}>
@@ -38,8 +40,16 @@ export const DiagramTab = ({ data, categories }) => {
                   }}
                 ></div>
                 <div className={css.table__value}>
-                  <div className={css.table__name}>{category.filter((value , index)=> value.id === item.categoryId).map(e => e.name)}</div>
-                  <div className={css.table__total}>{item.amount * -1}</div>
+                  <div className={css.table__name}>
+                    {category
+                      .filter((value, index) => value.id === item.categoryId)
+                      .map(e => {
+                        return e.name;
+                      })}
+                  </div>
+                  <div className={css.table__total}>
+                    {item.type === 'INCOME' ? item.amount : item.amount * -1}
+                  </div>
                 </div>
               </div>
               <img className={css.table__line} alt="" src={line} />
