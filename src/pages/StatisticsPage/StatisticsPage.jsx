@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Media from 'react-media';
+import { Fragment } from 'react';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Balance } from 'components/Balance/Balance';
 import { ChartDoughnut } from '../../components/Chart/Chart';
@@ -110,7 +112,10 @@ export const StatisticsPage = () => {
             <Navigation className={css.statistics_navigation} />
             <Balance className={css.statistics_balance} />
           </div>
-          <Currency className={css.statistics_currency} />
+          <Media
+            query="(min-width: 768px)"
+            render={() => <Currency className={css.statistics_currency} />}
+          />
         </div>
         <div className={css.statistics_section}>
           <div className={css.statistics_chart}>
