@@ -62,10 +62,7 @@ export const ModalEditTransaction = () => {
             type="number"
             name="number"
             className={css.number}
-            defaultValue={
-              transactionToEdit.type === 'EXPENSE'
-                ? transactionToEdit.amount * -1
-                : transactionToEdit.amount
+            defaultValue={transactionToEdit.amount
             }
           ></input>
           <input
