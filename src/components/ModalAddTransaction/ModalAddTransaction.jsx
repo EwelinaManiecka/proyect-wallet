@@ -1,16 +1,15 @@
 import { toggleModalAddTransaction } from 'redux/global/global-action';
-import { addTransaction } from 'redux/transactions/operations';
-import { selectCategories } from 'redux/transactions/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { addTransaction, getAllTransactions } from 'redux/transactions/operations';
+import { useDispatch } from 'react-redux';
 import css from './ModalAddTransaction.module.scss';
 import { Button } from 'common/Button/Button';
 import closeBtn from './../../images/close_btn.svg';
 import { useState } from 'react';
+import { categories } from 'components/Table/categories';
 
 export const ModalAddTransaction = () => {
   const [checked, setChecked] = useState(false);
   const [selected, setSelected] = useState('');
-  const categories = useSelector(selectCategories);
 
   const dispatch = useDispatch();
 
@@ -46,8 +45,8 @@ export const ModalAddTransaction = () => {
       comment: comment,
       amount: checked ? Number(amount) : Number(amount),
     };
-    console.log(newTransaction);
     dispatch(addTransaction(newTransaction));
+    dispatch(getAllTransactions())
     dispatch(toggleModalAddTransaction());
   };
 

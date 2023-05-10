@@ -6,16 +6,15 @@ import {
 import { deleteTransaction } from 'redux/transactions/operations';
 import {
   selectTransactions,
-  selectCategories,
 } from 'redux/transactions/selectors';
 import css from './TableMobile.module.scss';
 import pen from './../../images/pen.svg';
+import { categories } from 'components/Table/categories';
 const uniqid = require('uniqid');
 
 export const TableMobile = () => {
   const dispatch = useDispatch();
   const allTransactions = useSelector(selectTransactions);
-  const categories = useSelector(selectCategories);
 
   const toggleModal = data => {
     dispatch(setTransactionToEdit(data));
@@ -24,6 +23,13 @@ export const TableMobile = () => {
 
   const removeTransaction = id => {
     dispatch(deleteTransaction(id));
+  };
+
+  const findCategory = option => {
+    const categoryToFind = categories.find(
+      category => category.id === option.categoryId
+    );
+    return categoryToFind.name;
   };
 
   return (
@@ -47,7 +53,7 @@ export const TableMobile = () => {
                 </li>
                 <li key={uniqid()} className={css.mobile_listItem}>
                   <span className={css.mobile_listCategory}>Category</span>
-                  <span className={css.mobile_listData}>Kitchen</span>
+                  <span className={css.mobile_listData}>{findCategory(transaction)}</span>
                 </li>
                 <li key={uniqid()} className={css.mobile_listItem}>
                   <span className={css.mobile_listCategory}>Comment</span>
