@@ -22,12 +22,13 @@
   }
 
   &_section {
-    display: flex;
+    display: block;
     justify-content: center;
+    margin-top: 32px;
   }
 
   &_balance {
-    display: flex;
+    display: block;
     justify-content: center;
   }
 
@@ -35,12 +36,7 @@
     display: none;
   }
 
-  &_field {
-    display: block;
-  }
-
   &_chart {
-    margin-top: 20px;
     display: flex;
     margin-bottom: 30px;
     flex-direction: column;
@@ -80,16 +76,15 @@
       background-image: url('../../images/Dashboard/bg-tablet-dashboard.png');
       background-repeat: no-repeat;
       background-size: cover;
-
       flex-direction: column;
-    }
-
-    &_balance {
-      margin-top: 10px;
     }
 
     &_section {
       display: flex;
+    }
+
+    &_balance {
+      display: block
     }
 
     &_currency {
@@ -100,7 +95,6 @@
     }
 
     &_chart {
-      width: 40%;
       float: right;
     }
 
@@ -110,10 +104,10 @@
 
     &_table {
       display: flex;
-      margin: 0px;
       flex-direction: column;
-      margin-right: 100px;
+      margin-top: 26px;
     }
+
     &_select {
       display: flex;
       width: 160px;
@@ -158,11 +152,6 @@
 
     &_currency {
       margin-left: -30px;
-    }
-
-    &_field {
-      margin-top: -330px;
-      display: flex;
     }
 
     &_chart {
