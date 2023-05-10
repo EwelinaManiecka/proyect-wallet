@@ -17,12 +17,10 @@
 .statistics {
   &_container {
     padding-top: 15px;
-    margin-left: -25px;
     min-width: 100%;
     background-color: rgba(208, 202, 202, 0.2);
-    justify-content: center;
-    align-items: center;
   }
+
   &_section {
     display: flex;
     justify-content: center;
@@ -38,10 +36,7 @@
   }
 
   &_field {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: block;
   }
 
   &_chart {
@@ -54,21 +49,21 @@
 
   &_title {
     font-family: 'Poppins';
-    margin-bottom: 20px;
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
-    line-height: 45px;
+    margin-top: 20px;
   }
+
   &_table {
-    display: flex;
-    flex-direction: column;
     width: 280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &_donughnut {
-    justify-content: center;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   &_select {
     display: flex;
@@ -105,26 +100,17 @@
     }
 
     &_chart {
-      padding-top: 30px;
-      display: flex;
-      width: 100%;
-      justify-content: left;
-      flex-direction: column;
+      width: 40%;
+      float: right;
     }
+
     &_title {
       margin-left: 50px;
     }
 
-    &_field {
-      flex-direction: row;
-      gap: 32px;
-    }
-
     &_table {
       display: flex;
-
       margin: 0px;
-
       flex-direction: column;
       margin-right: 100px;
     }
