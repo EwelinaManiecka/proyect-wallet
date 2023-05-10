@@ -12,14 +12,9 @@ import { DashboardPage } from '../pages/DashboardPage/DashboardPage';
 import { StatisticsPage } from '../pages/StatisticsPage/StatisticsPage';
 import { CurrencyPage } from '../pages/CurrencyPage/CurrencyPage';
 import { fetchCurrentUser } from '../redux/auth/operations';
-import {
-  getTransactionCategories,
-  getAllTransactions,
-} from 'redux/transactions/operations';
 import { useAuth } from 'hooks';
 
 import { Spinner } from './Spinner/Spinner';
-import { transactionSummary } from 'redux/statistiscs/operations';
 import {
   selectCategories,
   selectTransactions,
@@ -33,9 +28,6 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
-    dispatch(getTransactionCategories());
-    dispatch(getAllTransactions());
-    dispatch(transactionSummary({ year: 0, month: 0 }));
   }, [dispatch, trans.length, isLoggedIn]);
 
   return isRefreshing && categories ? (

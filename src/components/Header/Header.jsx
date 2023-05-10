@@ -1,7 +1,6 @@
 import React from 'react';
 import Media from 'react-media';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectName } from 'redux/auth/selectors.js';
 import {
   closeModalLogout,
   openModalLogout,
@@ -24,7 +23,6 @@ export const Header = () => {
   const isModalLogoutOpen = useSelector(selectIsModalOpen);
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log(user);
   const handleLogout = () => {
     dispatch(resetState());
     dispatch(logOut());
