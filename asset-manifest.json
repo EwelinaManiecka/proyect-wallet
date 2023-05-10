@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/proyect-wallet/static/css/main.528f68a4.css",
+    "main.css": "/proyect-wallet/static/css/main.6bc0e83b.css",
     "main.js": "/proyect-wallet/static/js/main.cd90ccc8.js",
     "static/media/bg-desktop-dashboard.png": "/proyect-wallet/static/media/bg-desktop-dashboard.047fbac0dc03289acc61.png",
     "static/media/bg-tablet-dashboard.png": "/proyect-wallet/static/media/bg-tablet-dashboard.7c86bea02ec742609411.png",
@@ -26,11 +26,11 @@
     "static/media/close_btn.svg": "/proyect-wallet/static/media/close_btn.4ca60f1813426122dabf98a3268fb691.svg",
     "static/media/arrow_down.svg": "/proyect-wallet/static/media/arrow_down.77b989b3724c691229812f9ba569ef26.svg",
     "static/media/vertical-line.svg": "/proyect-wallet/static/media/vertical-line.4197971255a4c6a047f2d568d14b817e.svg",
-    "main.528f68a4.css.map": "/proyect-wallet/static/css/main.528f68a4.css.map",
+    "main.6bc0e83b.css.map": "/proyect-wallet/static/css/main.6bc0e83b.css.map",
     "main.cd90ccc8.js.map": "/proyect-wallet/static/js/main.cd90ccc8.js.map"
   },
   "entrypoints": [
-    "static/css/main.528f68a4.css",
+    "static/css/main.6bc0e83b.css",
     "static/js/main.cd90ccc8.js"
   ]
 }
