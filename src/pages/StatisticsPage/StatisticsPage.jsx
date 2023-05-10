@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Navigation } from 'components/Navigation/Navigation';
 import { Balance } from 'components/Balance/Balance';
-import { Currency } from 'components/Currency/Currency';
 import { ChartDoughnut } from '../../components/Chart/Chart';
 import { Header } from 'components/Header/Header';
 import { Footer } from 'components/Footer/Footer';
