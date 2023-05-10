@@ -64,6 +64,7 @@ export const updateTransaction = createAsyncThunk(
       transactionId,
     } = transaction;
     try {
+      const state = thunkAPI.getState();
       const response = await apiInstance.patch(
         `/transactions/${transactionId}`,
         {
@@ -75,7 +76,7 @@ export const updateTransaction = createAsyncThunk(
         }
       );
       const { transaction } = response.data;
-      return transaction;
+      return { transaction, state };
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

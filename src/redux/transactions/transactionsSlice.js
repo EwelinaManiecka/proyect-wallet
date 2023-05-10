@@ -13,6 +13,7 @@ const initialState = {
   isLoading: false,
   categories: [],
   balance: 0,
+  wasUpdated: false,
 };
 
 export const transactionsSlice = createSlice({
@@ -72,17 +73,20 @@ export const transactionsSlice = createSlice({
     },
     [updateTransaction.pending]: (state, action) => {
       state.isLoading = true;
+      state.wasUpdated = true;
     },
     [updateTransaction.fulfilled]: (state, action) => {
       state.isLoading = false;
-      const index = state.transactions.allTransactions.findIndex(
+      const index = state.transactions.findIndex(
         transaction => transaction.id === action.payload.id
       );
       state.transactions[index] = action.payload;
+      state.wasUpdated = false;
     },
     [updateTransaction.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
+      state.wasUpdated = false;
     },
   },
 });

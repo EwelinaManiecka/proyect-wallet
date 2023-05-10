@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Media from 'react-media';
 import { Header } from 'components/Header/Header';
 import { Navigation } from 'components/Navigation/Navigation';
@@ -17,8 +17,29 @@ import { ModalEditTransaction } from 'components/ModalEditTransaction/ModalEditT
 import { ButtonAddTransactions } from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 import css from './DashboardPage.module.scss';
+import {
+  selectTransactions,
+  selectWasUpdated,
+} from 'redux/transactions/selectors';
+import { useEffect } from 'react';
+import { fetchCurrentUser } from 'redux/auth/operations';
+import {
+  getAllTransactions,
+  getTransactionCategories,
+} from 'redux/transactions/operations';
+import { transactionSummary } from 'redux/statistiscs/operations';
 
 export const DashboardPage = () => {
+  const trans = useSelector(selectTransactions);
+  const wasUpdated = useSelector(selectWasUpdated);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+    dispatch(getTransactionCategories());
+    dispatch(getAllTransactions());
+    dispatch(transactionSummary({ year: 0, month: 0 }));
+  }, [dispatch, trans.length, wasUpdated]);
+
   const isModalAddTransactionOpened = useSelector(
     selectIsAddTransactionModalopen
   );
