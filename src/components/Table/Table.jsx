@@ -73,7 +73,7 @@ export const Table = () => {
                   }
                   key={uniqid()}
                 >
-                  {transaction.amount}
+                  {transaction && transaction.amount}
                 </li>
               </ul>
               <div className={css.row__icons}>
