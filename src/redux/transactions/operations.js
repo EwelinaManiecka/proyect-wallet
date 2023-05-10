@@ -1,20 +1,11 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-export const addTransactionInstance = axios.create({
-  baseURL: 'https://wallet-app.herokuapp.com/',
-  timeout: '8000',
-  mode: 'cors',
-});
+import { apiInstance } from 'redux/auth/operations';
 
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async (transaction, thunkAPI) => {
     try {
-      const { data } = await addTransactionInstance.post(
-        'api/transactions',
-        transaction
-      );
+      const { data } = await apiInstance.post('/transactions', transaction);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -26,8 +17,8 @@ export const getTransactionCategories = createAsyncThunk(
   'transactions/getTransactionCategories',
   async (categories, thunkAPI) => {
     try {
-      const { data } = await addTransactionInstance.get(
-        '/api/transaction-categories',
+      const { data } = await apiInstance.get(
+        '/transaction-categories',
         categories
       );
       return data;
@@ -41,10 +32,7 @@ export const getAllTransactions = createAsyncThunk(
   'transactions/getAllTransactions',
   async (transactions, thunkAPI) => {
     try {
-      const { data } = await addTransactionInstance.get(
-        '/api/transactions',
-        transactions
-      );
+      const { data } = await apiInstance.get('/transactions', transactions);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -56,7 +44,7 @@ export const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
   async (transactionId, thunkAPI) => {
     try {
-      await addTransactionInstance.delete(`/api/transactions/${transactionId}`);
+      await apiInstance.delete(`/transactions/${transactionId}`);
       return transactionId;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -76,8 +64,8 @@ export const updateTransaction = createAsyncThunk(
       transactionId,
     } = transaction;
     try {
-      const response = await addTransactionInstance.patch(
-        `/api/transactions/${transactionId}`,
+      const response = await apiInstance.patch(
+        `/transactions/${transactionId}`,
         {
           transactionDate,
           type,

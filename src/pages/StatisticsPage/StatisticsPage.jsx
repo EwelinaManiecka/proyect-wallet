@@ -20,8 +20,6 @@ import Select, { components } from 'react-select';
 import arrowDown from '../../images/arrow_down.svg';
 import css from './StatisticsPage.module.scss';
 
-import { getStatistics } from '../../redux/statistiscs/operations';
-
 const CaretDownIcon = () => {
   return <img className={css.dropdown} alt="Logo" src={arrowDown} />;
 };
@@ -61,26 +59,17 @@ export const StatisticsPage = () => {
   const dataStatistisc = useSelector(selectStatistics);
   const dataCategories = useSelector(selectCategoriesSummary);
 
+  console.log(dataStatistisc);
+
   const [month, setMonth] = useState(actualMonth);
   const [year, setYear] = useState(actualYear);
 
   useEffect(() => {
     dispatch(transactionSummary({ year, month }));
-    dispatch(getStatistics());
   }, [year, month, dispatch]);
   const categories = dataCategories.map(e => e.name);
 
   let summary = dataStatistisc;
-
-  // console.log(summary);
-  // const expense = summary.expense.expenseAll;
-  // console.log(expense);
-  // const expenseYear = summary.expense.expenseYear * -1;
-  // const expenseMonth = summary.expense.expenseMonth * -1;
-
-  // const income = summary.income.incomeAll;
-  // const incomeYear = summary.income.incomeYear;
-  // const incomeMonth = summary.income.incomeMonth;
 
   const monthValue = [
     { value: '01', label: 'January' },
@@ -138,12 +127,7 @@ export const StatisticsPage = () => {
                   <ChartDoughnut
                     categories={categories}
                     colors={colors}
-                    expense={
-                      summary.transactionSummary
-                        ? summary.transactionSummary.transactionSummary.summary
-                            .expense.expenseAll
-                        : 0
-                    }
+                    expense={summary.expense ? summary.expense.expenseMonth : 0}
                   />
                 </div>
               </div>
