@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const apiInstance = axios.create({
-  baseURL: 'https://wallet-app.herokuapp.com/api',
+  baseURL: 'https://zany-puce-coral-cuff.cyclic.app/api',
   timeout: '8000',
   mode: 'cors',
 });
