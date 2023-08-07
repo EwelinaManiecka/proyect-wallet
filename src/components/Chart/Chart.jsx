@@ -3,17 +3,16 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 import css from './Chart.module.scss';
 
-export const ChartDoughnut = ({ categories, colors, expense }) => {
+export const ChartDoughnut = ({ data, categories, colors, expense }) => {
   ChartJS.register(ArcElement, Tooltip, Legend);
 
-  const data = {
+  const dataChart = {
     labels: categories || [],
     datasets: [
       {
         label: '',
-        data: categories ? categories.map((_, index) => 8 - index) : [1],
-        backgroundColor:
-          categories && categories.length > 0 ? colors : ['#838383'],
+        data: data.all ? data.all.map((e, index) => e.type === 'INCOME' ? e.amount : e.amount * -1) : [1],
+        backgroundColor: colors.length > 0 ? colors : ['#838383'],
         borderWidth: 0,
         cutout: '70%',
       },
@@ -35,7 +34,7 @@ export const ChartDoughnut = ({ categories, colors, expense }) => {
       {expense ? (
         <>
           <Doughnut
-            data={data}
+            data={dataChart}
             options={options}
             className={css.chart__doughnut}
           />
@@ -44,7 +43,7 @@ export const ChartDoughnut = ({ categories, colors, expense }) => {
       ) : (
         <>
           <Doughnut
-            data={data}
+            data={dataChart}
             options={options}
             className={css.chart__doughnut}
           />
@@ -54,18 +53,3 @@ export const ChartDoughnut = ({ categories, colors, expense }) => {
     </div>
   );
 };
-
-// Kolory do połączenia z Kategoriami w Statistics
-
-// const colors = [
-//   '#FED057', // Main expenses
-//   '#FFD8D0', // Products
-//   '#FD9498', // Car
-//   '#C5BAFF', // Self care
-//   '#6E78E8', // Child care
-//   '#4A56E2', // Household products
-//   '#81E1FF', // Education
-//   '#24CCA7', // Leisure
-//   '#00AD84', // Other expenses
-//   '#DC6FF2', // Entertainment
-// ];

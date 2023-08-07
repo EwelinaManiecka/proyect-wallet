@@ -35,41 +35,63 @@ const DropdownIndicator = props => {
 };
 
 export const StatisticsPage = () => {
-  const colors = [
-    '#FED057', // Main expenses
-    '#FFD8D0', // Products
-    '#FD9498', // Car
-    '#C5BAFF', // Self care
-    '#6E78E8', // Child care
-    '#4A56E2', // Household products
-    '#81E1FF', // Education
-    '#24CCA7', // Leisure
-    '#00AD84', // Other expenses
-    '#DC6FF2', // Entertainment
+  
+  const colored = [
+   { color: '#FED057', name: 'Main expenses' },
+   { color: '#FFD8D0', name: 'Products' },
+   { color: '#FD9498', name: 'Car' },
+   { color: '#C5BAFF', name: 'Self care' },
+   { color: '#6E78E8', name: 'Child care' },
+   { color: '#4A56E2', name: 'Household products' },
+   { color: '#81E1FF', name: 'Education' },
+   { color: '#24CCA7', name: 'Leisure' },
+   { color: '#00AD84', name: 'Other expenses' },
+   { color: '#DC6FF2', name: 'Entertainment' },
+   { color: 'rgba(36, 204, 167, 1)', name: 'Income'},
   ];
 
   const timeZoneRelatedDate = new Date();
   const actualMonth = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
     month: '2-digit',
   });
+  const months = [...Array(12).keys()].map(key => new Date(0, key).toLocaleString('pl-PL', { month: '2-digit' }))
+  //const years = [...Array(12).keys()].map(key => new Date(2016, key).toLocaleString('pl-PL', { year: 'numeric' }))
+ 
+
   const actualYear = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
     year: 'numeric',
   });
+
+  const years = timeZoneRelatedDate.getFullYear();
+   console.log(years)
 
   const dispatch = useDispatch();
 
   const dataStatistisc = useSelector(selectStatistics);
   const dataCategories = useSelector(selectCategoriesSummary);
-
+  const summary = dataStatistisc;
+  const categoryNameData = [];
+  const categoryColorData = [];
   const [month, setMonth] = useState(actualMonth);
   const [year, setYear] = useState(actualYear);
 
   useEffect(() => {
     dispatch(transactionSummary({ year, month }));
   }, [year, month, dispatch]);
-  const categories = dataCategories.map(e => e.name);
 
-  let summary = dataStatistisc;
+  const categoryId = dataStatistisc.all.map(e => e.categoryId);
+
+  categoryId.forEach(function (element, index) {
+      categoryNameData.push(dataCategories.filter((value, index) => value.id == element).map(e => e.name));
+  });
+
+  const categoryName = categoryNameData.flatMap(e => e)
+
+  categoryName.forEach(function (element, index) {
+    categoryColorData.push(colored.filter((value, index) => value.name === element).map(e=>e.color))
+  })
+
+  const categoryColor = categoryColorData.flatMap(e => e); 
 
   const monthValue = [
     { value: '01', label: 'January' },
@@ -120,8 +142,9 @@ export const StatisticsPage = () => {
             <h2 className={css.statistics_title}>Statistics</h2>
             <div className={css.statistics_donughnut}>
               <ChartDoughnut
-                categories={categories}
-                colors={colors}
+                data={dataStatistisc}
+                categories={categoryName}
+                colors={categoryColor}
                 expense={summary.expense ? summary.expense.expenseMonth : 0}
               />
             </div>
@@ -145,7 +168,7 @@ export const StatisticsPage = () => {
                 options={yearValue}
               />
             </div>
-            <DiagramTab data={dataStatistisc} categories={dataCategories}/>
+            <DiagramTab data={dataStatistisc} categoryName={categoryName} colors={categoryColor}/>
           </div>
         </div>
       </div>
