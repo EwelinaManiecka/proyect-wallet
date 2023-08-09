@@ -54,9 +54,6 @@ export const StatisticsPage = () => {
   const actualMonth = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
     month: '2-digit',
   });
-  const months = [...Array(12).keys()].map(key => new Date(0, key).toLocaleString('pl-PL', { month: '2-digit' }))
-  //const years = [...Array(12).keys()].map(key => new Date(2016, key).toLocaleString('pl-PL', { year: 'numeric' }))
- 
 
   const actualYear = timeZoneRelatedDate.toLocaleDateString('pl-PL', {
     year: 'numeric',
@@ -82,7 +79,7 @@ export const StatisticsPage = () => {
   const categoryId = dataStatistisc.all.map(e => e.categoryId);
 
   categoryId.forEach(function (element, index) {
-      categoryNameData.push(dataCategories.filter((value, index) => value.id == element).map(e => e.name));
+      categoryNameData.push(dataCategories.filter((value, index) => value.id === element).map(e => e.name));
   });
 
   const categoryName = categoryNameData.flatMap(e => e)
