@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const apiInstance = axios.create({
-  baseURL: 'https://zany-puce-coral-cuff.cyclic.app/api',
+  baseURL: 'https://easy-blue-dragonfly-tux.cyclic.cloud/',
   timeout: '8000',
   mode: 'cors',
 });
